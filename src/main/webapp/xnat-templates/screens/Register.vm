@@ -1,0 +1,52 @@
+<!-- BEGIN xnat-templates/screens/Register.vm -->
+#* @vtlvariable name="siteConfig" type="org.nrg.xdat.preferences.SiteConfigPreferences" *#
+#* @vtlvariable name="data" type="org.apache.turbine.util.RunData" *#
+#* @vtlvariable name="page" type="org.apache.turbine.util.template.HtmlPageAttributes" *#
+#* @vtlvariable name="ui" type="org.apache.turbine.services.pull.util.UIManager" *#
+#* @vtlvariable name="turbineUtils" type="org.nrg.xdat.turbine.utils.TurbineUtils" *#
+#set ($template = $data.getTemplateInfo())
+$!template.setLayoutTemplate("Login.vm")
+$page.setTitle("Register A New User Account")
+$page.setBgColor($ui.bgcolor)
+
+## Dependency for markdown parsing
+<script src="$content.getURI("scripts/lib/epicEditor/js/epiceditor.js")"></script>
+
+<div id="login_area">
+    #if($siteConfig.siteWideAlertStatus != "0" && $siteConfig.siteWideAlertStatus != "off")
+        <div class="$siteConfig.siteWideAlertType" style="margin-bottom: 2em;"><strong>$siteConfig.siteWideAlertMessage</strong></div>
+    #end
+
+    <div id="login_welcome">
+        #if($siteConfig.siteDescriptionType == "Text")
+            <div id="siteDescription"></div>
+            <textarea id="siteDescriptionMd" style="display: none;">$siteConfig.siteDescriptionText</textarea>
+            <script>
+                var mdtext = jq('#siteDescriptionMd').text();
+                var markedText = marked(mdtext);
+                jq('#siteDescription').html(markedText);
+            </script>
+        #else
+            #if($turbineUtils.resourceExists($siteConfig.siteDescriptionPage))
+                <div>#parse($siteConfig.siteDescriptionPage)</div>
+            #else
+                <div>Custom site description page not found!</div>
+            #end
+        #end
+    </div>
+
+    <div id="register_box_container" style="background:transparent">
+        <h3><span>New User Registration</span></h3>
+        <div class="clear"></div>
+        #if($data.getMessage())
+            <div class="warning" style="border-bottom: 0">
+                <p><strong>Note: </strong><br />$data.getMessage()</p>
+            </div>
+        #end
+        <div id="register_box">
+            #parse("/screens/register_box.vm")
+        </div>
+    </div>
+
+</div>
+<!-- END xnat-templates/screens/Register.vm -->

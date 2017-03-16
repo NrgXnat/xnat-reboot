@@ -1,0 +1,24 @@
+#* @vtlvariable name="siteConfig" type="org.nrg.xdat.preferences.SiteConfigPreferences" *#
+<!-- Sequence: 10 -->
+
+<!-- Browse/Default -->
+    <li class="hidden"><a id="browse-projects-menu-item" href="#!" class="nolink">Projects</a>
+        <ul id="browse-projects" class="shadowed dark-shadow">
+            <!-- Sequence: 10 -->
+            #if($siteConfig.uiAllowNonAdminProjectCreation || $data.getSession().getAttribute("userHelper").canCreate("xnat:subjectData/project"))
+                <li class="create-project hidden"><a href="$link.setPage("XDATScreen_add_xnat_projectData.vm")">Create $displayManager.getSingularDisplayNameForProject()</a></li>
+            #end
+        </ul>
+    </li>
+    <li class="hidden"><a href="#!" class="nolink">Favorite Projects</a>
+        <ul id="favorite-projects">
+            <!-- Sequence: 20 -->
+        </ul>
+    </li>
+    <li class="hidden"><a href="#!" class="nolink">Data</a>
+        <ul id="browse-data">
+            <!-- Sequence: 30 -->
+        </ul>
+    </li>
+
+<script src="$content.getURI("/scripts/xnat/app/topnav-browse.js")"></script>

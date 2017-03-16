@@ -1,0 +1,45 @@
+## Main JavaScript and CSS files for XNAT
+
+#set($versionString = "v=1.7.1")
+#set($SITE_ROOT = $content.getURI(""))
+
+## only load once
+#if (!$appJS)
+
+    <!-- app.css loaded last -->
+    <link rel="stylesheet" type="text/css" href="${SITE_ROOT}/style/app.css?${versionString}">
+    <!-- Icon sets -->
+    <link rel="stylesheet" type="text/css" href="${SITE_ROOT}/style/icons.css?${versionString}">
+    <link rel="stylesheet" type="text/css" href="${SITE_ROOT}/page/admin/style.css?${versionString}">
+
+    <link rel="stylesheet" type="text/css" href="${SITE_ROOT}/scripts/xmodal-v1/xmodal.css?${versionString}">
+    <script src="${SITE_ROOT}/scripts/xmodal-v1/xmodal.js"></script>
+    <script src="${SITE_ROOT}/scripts/xmodal-v1/xmodal-migrate.js"></script>
+
+    <!-- XNAT JLAPI scripts -->
+    <script src="${SITE_ROOT}/scripts/xnat/validate.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/url.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/xhr.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/event.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/element.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/templates.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/input.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/select.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/table.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/panel.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/tabs.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/banner.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/popup.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/ui/dialog.js"></script>
+    <script src="${SITE_ROOT}/scripts/xnat/app/codeEditor.js"></script>
+
+    <!-- The Spawner! -->
+    <script src="${SITE_ROOT}/scripts/xnat/spawner.js"></script>
+
+    #set ($appJS = true)
+
+#else
+
+    <!-- AppJS is loaded -->
+
+#end

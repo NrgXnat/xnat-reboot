@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+##Copyright 2005 Harvard University / Howard Hughes Medical Institute (HHMI) All Rights Reserved
+<!--[if lt IE 9]><html class="ie ie8 ltie9 ltie10"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 ltie10"><![endif]-->
+<!--[if gt IE 9]><!--><html><!--<![endif]-->
+<head>
+<script type="text/javascript">
+    var XNAT = {};
+    #if ($themedRedirect) <!-- Reload the appropriate page if a global theme style specifies a redirect -->
+    window.location = "$content.getURI("")$themedRedirect";
+    #end
+    #if ($theme)
+    XNAT.theme = "$theme";
+    #end
+</script>
+
+<!-- path: xnat-templates/navigations/htmlOpen -->
+    <title>$!systemName</title>
+    <!-- HeaderIncludes -->
+    $navigation.setTemplate("/HeaderIncludes.vm")
+    <!-- /HeaderIncludes -->
+
+#if ($themedScript) <!-- Load active global theme script -->
+    <script type="text/javascript" src="$content.getURI("")$themedScript"></script>
+#end
+
+#if ($themedStyle) <!-- Load active global theme style -->
+    <link rel="stylesheet" type="text/css" href="$content.getURI("")$themedStyle">
+#end

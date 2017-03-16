@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie ltie9 ltie10 no-js"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 ltie10 no-js"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js"><!--<![endif]-->
+<head>
+    <title>View Examples</title>
+</head>
+<body>
+
+<h1>Example Views</h1>
+
+<label for="data-url">URL: </label>
+<br>
+<input id="data-url" type="text" placeholder="/path/to/data">
+<button type="button" id="load-data">Load Data</button>
+
+<br>
+<br>
+
+<label for="json-data">JSON Data: </label>
+<br>
+<textarea id="json-data" rows="10" cols="50">
+    {
+      "items": [
+        {
+          "children": [
+            {
+              "field": "PI",
+              "items": [
+                {
+                  "children": [
+                  ],
+                  "meta": {
+                    "create_event_id": 9,
+                    "xsi:type": "xnat:investigatorData",
+                    "isHistory": false,
+                    "start_date": "Wed Dec 28 23:17:08 UTC 2016"
+                  },
+                  "data_fields": {
+                    "institution": "WUSM",
+                    "firstname": "Mark",
+                    "phone": "",
+                    "xnat_investigatorData_id": 1,
+                    "department": "NRG",
+                    "title": "",
+                    "email": "markflorida@wustl.edu",
+                    "lastname": "Florida"
+                  }
+                }
+              ]
+            }
+          ],
+          "meta": {
+            "create_event_id": 10,
+            "xsi:type": "xnat:projectData",
+            "isHistory": false,
+            "start_date": "Wed Dec 28 23:17:14 UTC 2016"
+          },
+          "data_fields": {
+            "secondary_ID": "x",
+            "name": "x",
+            "ID": "x"
+          }
+        }
+      ]
+    }
+</textarea>
+<br>
+<button type="button" id="load-json">Load JSON Data</button>
+
+<br>
+<br>
+
+<label for="transform-script">Transform Script: </label>
+<br>
+<!-- functions need to be surrounded by () parentheses -->
+<textarea id="transform-script" rows="10" cols="50">
+(function(data){ return data.items[0].data_fields.name })
+</textarea>
+
+<!-- container for output -->
+<div id="view-output"></div>
+
+<!-- scripts for implementation -->
+<script src="../../polyfills.js"></script>
+<script src="../../globals.js"></script>
+<script src="../../lib/loadjs/loadjs.js"></script>
+<script src="../../lib/jquery/jquery.js"></script>
+<script src="../../utils.js"></script>
+<script src="../../lib/spawn/spawn.js"></script>
+<script src="../../xnat/spawner.js"></script>
+<script src="../../xnat/ui/select.js"></script>
+
+<!-- scripts for these examples -->
+<script src="../../xnat/ui/view.js"></script>
+<script src="../../xnat/ui/view.examples.js"></script>
+
+<script>
+
+    var q = {
+        id: function(id){
+            return document.getElementById(id);
+        },
+        className: function(cls){
+            return document.getElementsByClassName(cls);
+        },
+        name: function(name){
+            return document.getElementsByName(name);
+        },
+        tag: function(tag){
+            return document.getElementsByTagName(tag);
+        },
+        selector: function(sel){
+            return document.querySelector(sel)
+        },
+        selectAll: function(sel){
+            return document.querySelectorAll(sel)
+        }
+    };
+    q.getById = q.id;
+    q.tagName = q.tag;
+    q.select = q.getElement = q.selector;
+    q.selectorAll = q.getElements = q.selectAll;
+
+    var x$ = q;
+
+    $(function(){
+
+        $('#load-data').on('click', function(){
+            var data = x$.getById('json-data').value;
+            var transformer = x$.getById('transform-script').value.trim();
+//            $.get({
+//                url: q.id('data-url').value,
+//                success: function(data){
+                    XNAT.ui.view.objectDisplay({
+                        data: data,
+                        container: x$.id('view-output'),
+                        transform: transformer
+//                        transform: function(){
+//                            return this.items[0].data_fields.name;
+//                        }
+                    }).render();
+//                }
+//            })
+        });
+
+        $('#load-json').on('click', function(){
+            console.log('clicked');
+            var json = JSON.parse($('#json-data').val().trim());
+            var itemCount = -1;
+            XNAT.ui.view.init({
+                data: json,
+                container: '#view-output',
+                transform: function(){
+                    var obj = this;
+                    itemCount++;
+                    var NAME = 'subject_assessors.xsi_types[' + itemCount + ']';
+                    var xsi_type = spawn('p.xsi_type', { title: NAME }, [
+                        ['b', obj.xsi_type],
+                        ['input|type=hidden', { value: obj.xsi_type }]
+                    ]);
+                    var needs_ok = spawn('label', [
+                        ['input', {
+                            type: 'checkbox',
+                            name: NAME + '.needs_ok_to_sync',
+                            checked: obj.needs_ok_to_sync
+                        }],
+                        ' Needs "ok" to sync?'
+                    ]);
+                    var sync_type = XNAT.ui.select.menu({
+                        name: NAME + '.resources.sync_type',
+                        value: obj.resources.sync_type,
+                        options: ['none', 'all', 'include', 'exclude']
+                    }).element;
+                    var $items = $.spawn('textarea').val(obj.resources.items.join(', '));
+                    return spawn('div.subject_assessors', [
+                        xsi_type, '<br>', needs_ok, '<br>', sync_type, $items
+                    ])
+                }
+            }).objectList();
+        });
+
+
+    });
+</script>
+
+</body>
+</html>
