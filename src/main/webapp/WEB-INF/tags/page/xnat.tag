@@ -276,7 +276,7 @@ ${bodyTop}
     </style>
 
 
-    <div id="main_nav">
+    <div id="main-nav">
         <div class="inner">
 
             <ul class="nav">
@@ -463,13 +463,13 @@ ${bodyTop}
                 </script>
             </form>
 
-            <!-- main_nav interactions -->
+            <!-- main-nav interactions -->
             <script type="text/javascript">
 
                 (function(){
 
                     // cache it
-                    var main_nav$ = jq('#main_nav ul.nav');
+                    var main_nav$ = jq('#main-nav ul.nav');
 
                     function fadeInNav(el$){
 //            el$.stop('clearQueue','gotoEnd');
@@ -490,7 +490,7 @@ ${bodyTop}
                             function(){
                                 var li$ = $(this);
                                 fadeInNav(li$);
-                                //jq('#main_nav li').removeClass('open');
+                                //jq('#main-nav li').removeClass('open');
                                 li$.find('ul.subnav').each(function(){
                                     var sub$ = $(this);
                                     var offsetL = sub$.closest('li').width();
@@ -512,13 +512,13 @@ ${bodyTop}
 
                 })();
             </script>
-            <!-- end main_nav interactions -->
+            <!-- end main-nav interactions -->
 
         </div>
         <!-- /.inner -->
 
     </div>
-    <!-- /#main_nav -->
+    <!-- /#main-nav -->
 
     <script src="${SITE_ROOT}/scripts/xnat/app/topnav-browse.js"></script>
 
@@ -533,7 +533,7 @@ ${bodyTop}
         function loadMainNav(){
 
             // get Velocity-generated menu
-            $('#main_nav').load('${SITE_ROOT}/app/template/Page.vm #main_nav > .inner', function(){
+            $('#main-nav').load('${SITE_ROOT}/app/template/Page.vm #main-nav > .inner', function(){
 
 
                 $('#nav-home').css({
@@ -579,7 +579,7 @@ ${bodyTop}
 
 
                 // cache it
-                var main_nav$ = jq('#main_nav ul.nav');
+                var main_nav$ = jq('#main-nav ul.nav');
 
                 function fadeInNav(el$){
 //            el$.stop('clearQueue','gotoEnd');
@@ -600,7 +600,7 @@ ${bodyTop}
                         function(){
                             var li$ = $(this);
                             fadeInNav(li$);
-                            //jq('#main_nav li').removeClass('open');
+                            //jq('#main-nav li').removeClass('open');
                             li$.find('ul.subnav').each(function(){
                                 var sub$ = $(this);
                                 var offsetL = sub$.closest('li').width();
@@ -665,7 +665,7 @@ ${bodyTop}
             // adjust width of main nav if logo is wider than 175px
             //var hdr_logo_width = header_logo$.width();
             //if (hdr_logo_width > 175) {
-            //    jq('#main_nav').width(932 - hdr_logo_width - 20);
+            //    jq('#main-nav').width(932 - hdr_logo_width - 20);
             //}
 
             //

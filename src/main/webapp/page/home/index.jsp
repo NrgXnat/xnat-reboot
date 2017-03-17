@@ -2,25 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<pg:doc>
-
-
+<pg:html>
     <!-- doc-head start -->
-    <pg:doc-head title="" headTop="" headBottom="">
+    <pg:head title="" headTop="" headBottom="">
 
         <!-- head content -->
 
-    </pg:doc-head>
+    </pg:head>
     <!-- doc-head end -->
-
-
     <!-- doc-body start -->
-    <pg:doc-body id="" className="" bodyTop="" bodyBottom="">
+    <pg:body id="" className="" bodyTop="" bodyBottom="">
 
         <jsp:include page="content.jsp"/>
 
-    </pg:doc-body>
+    </pg:body>
     <!-- doc-body end -->
-
-
-</pg:doc>
+</pg:html>

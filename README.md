@@ -1,16 +1,14 @@
-# XNAT Web Application #
+> **NOTE:** This is a _highly_ experimental fork of XNAT intended to break away from legacy front-end code. It is almost certain that modules and plugins that rely on the old template structure will not work. So... **DO NOT USE THIS VERSION IN A PRODUCTION ENVIRONMENT!** (or do so at your own risk)
 
-This is the XNAT Web application build. The latest release version of XNAT is [1.7.0 Build #775 (Sep 22, 2016 12:34:05 PM)](https://bintray.com/nrgxnat/applications/XNAT/1.7.0). The source for the release version can be found at [the 1.7.0 tag in the xnat-web source repository](https://bitbucket.org/xnatdev/xnat-web/commits/tag/1.7.0).
+---
+
+# XNAT Reboot #
+
+This fork of XNAT intends to shed the legacy front-end templates in favor of using JSP templates or plain-old HTML files. The back-end APIs that enable retrieving and submitting data via REST will be preserved and kept up-to-date with the main `xnat-web` repo. User interraction with data through the web interface should happen through JavaScript using REST/XHR or through JSP template code.
 
 # Installing #
 
-If you just want to install the latest release version of XNAT, you can download it from the XNAT bintray repository:
-
-[ ![Download](https://api.bintray.com/packages/nrgxnat/applications/XNAT/images/download.svg) ](https://bintray.com/nrgxnat/applications/XNAT/_latestVersion)
-
-You will also need to download the latest release version of the XNAT pipeline engine:
-
-[ ![Download](https://api.bintray.com/packages/nrgxnat/applications/XNAT_Pipeline/images/download.svg) ](https://bintray.com/nrgxnat/applications/XNAT_Pipeline/_latestVersion)
+Precompiled `.war` files will not be available for the `xnat-reboot` project. You can still use Gradle to build and deploy the application.
 
 If you would like to build a virtual machine that can run XNAT, you can use the [XNAT Vagrant project](https://bitbucket.org/xnatdev/xnat-vagrant).
 
@@ -65,13 +63,23 @@ You can build with a simple Gradle command:
 ```bash
 gradle clean war
 ```
+There's also a miniscule shell script that will launch Gradle to build the application and refresh the dependencies (for those of us too lazy to type out the entire command (below).  `--refresh-dependencies` is no fun to type 20 times a day.
+
+```bash
+gradle clean war --refresh-dependencies
+```
+...or...
+```bash
+./rebuild
+```
+You decide.
 
 You may need to build the [XDAT Data Builder Gradle plugin](https://bitbucket.org/xnatdev/xdat-data-builder) and [XNAT Data Models library](https://bitbucket.org/xnatdev/xnat-data-models) first, although it should be available on the XNAT Maven repository.
 
 This will create your deployable web application in the location:
 
 ```bash
-build/libs/xnat-web-1.7.0.war
+build/libs/xnat-reboot.war
 ```
 
 You can perform a build to your local Maven repository for development purposes like this:

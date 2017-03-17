@@ -2,9 +2,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<div id="page-wrapper">
-    <div class="pad">
-
-    </div>
-</div>
-<!-- /#page-wrapper -->
+<%-- new login page --%>

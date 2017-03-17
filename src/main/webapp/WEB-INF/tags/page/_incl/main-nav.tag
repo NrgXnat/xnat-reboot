@@ -33,7 +33,7 @@
 
 
     <%-- TODO: use Spawner to dynamically insert menu items --%>
-    <div id="main_nav">
+    <div id="main-nav">
         <div class="inner">
 
             <ul class="nav">
@@ -220,13 +220,13 @@
                 </script>
             </form>
 
-            <!-- main_nav interactions -->
+            <!-- main-nav interactions -->
             <script type="text/javascript">
 
                 (function(){
 
                     // cache it
-                    var main_nav$ = jq('#main_nav ul.nav');
+                    var main_nav$ = jq('#main-nav ul.nav');
 
                     function fadeInNav(el$){
                         //            el$.stop('clearQueue','gotoEnd');
@@ -247,7 +247,7 @@
                         function(){
                             var li$ = $(this);
                             fadeInNav(li$);
-                            //jq('#main_nav li').removeClass('open');
+                            //jq('#main-nav li').removeClass('open');
                             li$.find('ul.subnav').each(function(){
                                 var sub$ = $(this);
                                 var offsetL = sub$.closest('li').width();
@@ -269,13 +269,13 @@
 
                 })();
             </script>
-            <!-- end main_nav interactions -->
+            <!-- end main-nav interactions -->
 
         </div>
         <!-- /.inner -->
 
     </div>
-    <!-- /#main_nav -->
+    <!-- /#main-nav -->
 
     <script src="${SITE_ROOT}/scripts/xnat/app/topnav-browse.js"></script>
 
@@ -290,7 +290,7 @@
         function loadMainNav(){
 
             // get Velocity-generated menu
-            $('#main_nav').load('${SITE_ROOT}/app/template/Page.vm #main_nav > .inner', function(){
+            $('#main-nav').load('${SITE_ROOT}/app/template/Page.vm #main-nav > .inner', function(){
 
 
                 $('#nav-home').css({
@@ -336,7 +336,7 @@
 
 
                 // cache it
-                var main_nav$ = jq('#main_nav ul.nav');
+                var main_nav$ = jq('#main-nav ul.nav');
 
                 function fadeInNav(el$){
                     //            el$.stop('clearQueue','gotoEnd');
@@ -357,7 +357,7 @@
                     function(){
                         var li$ = $(this);
                         fadeInNav(li$);
-                        //jq('#main_nav li').removeClass('open');
+                        //jq('#main-nav li').removeClass('open');
                         li$.find('ul.subnav').each(function(){
                             var sub$ = $(this);
                             var offsetL = sub$.closest('li').width();

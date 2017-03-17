@@ -13,4 +13,4 @@ include 'shared'
 include 'api'
 include 'services:webservice'
 */
-rootProject.name = 'xnat-web-fresh'
+rootProject.name = 'xnat-reboot'

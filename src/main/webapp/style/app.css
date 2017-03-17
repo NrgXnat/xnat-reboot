@@ -1804,7 +1804,7 @@ div.containerTitle.withColor {
     z-index: 10;
 }
 
-#main_nav {
+#main-nav {
     position: relative;
     /*right: 0;*/
     /*bottom: 0;*/
@@ -1822,72 +1822,72 @@ div.containerTitle.withColor {
     border-bottom: 1px solid #033769;
 }
 
-#main_nav > .inner {
+#main-nav > .inner {
     width: 1160px;
     margin: 0 auto;
     position: relative;
     overflow: visible;
 }
 
-#main_nav.hidden {
+#main-nav.hidden {
     overflow: hidden;
 }
 
-#main_nav ul.nav li {
+#main-nav ul.nav li {
     float: left;
     display: block;
     position: relative;
 }
 
-#main_nav ul.nav,
-#main_nav ul.nav ul {
+#main-nav ul.nav,
+#main-nav ul.nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
     /*background: #fff;*/
 }
 
-#main_nav ul.nav a {
+#main-nav ul.nav a {
     display: block;
     text-decoration: none;
     vertical-align: middle;
     white-space: nowrap;
 }
 
-#main_nav ul.nav a:hover {
+#main-nav ul.nav a:hover {
     cursor: pointer !important;
 }
 
-#main_nav ul.nav li > ul {
+#main-nav ul.nav li > ul {
     display: none;
 }
 
-#main_nav ul.nav li li.active,
-#main_nav ul.nav li li.active > a,
-#main_nav ul.nav li li.active > a:hover {
+#main-nav ul.nav li li.active,
+#main-nav ul.nav li li.active > a,
+#main-nav ul.nav li li.active > a:hover {
     background-color: #cce1f3;
     /*background: #e5f2ff;*/
     /*z-index: 20;*/
 }
 
-#main_nav ul.nav li.active > ul {
+#main-nav ul.nav li.active > ul {
     display: block;
     z-index: 21;
 }
 
-#main_nav ul.nav > li {
+#main-nav ul.nav > li {
     border-right: 1px solid #033769;
 }
 
-#main_nav ul.nav > li:first-of-type {
+#main-nav ul.nav > li:first-of-type {
     border-left: 1px solid #033769;
 }
 
-/*#main_nav li:hover {*/
+/*#main-nav li:hover {*/
 /*!*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAkCAIAAAAhPwwfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADFJREFUeNpivHHjBgMMMDEgAXI4LIyMjCRzmJiYiJEhRxk5HIpdQEYYUBzwKByAAAMAcTUDbIMWsYkAAAAASUVORK5CYII=) center center repeat-x;*!*/
 /*}*/
 
-#main_nav ul.nav > li > a {
+#main-nav ul.nav > li > a {
     padding: 0 12px;
     line-height: 40px;
     background-position: right center;
@@ -1895,24 +1895,24 @@ div.containerTitle.withColor {
     color: #fff;
 }
 
-#main_nav ul.nav > li > a:hover,
-#main_nav ul.nav > li.active > a {
+#main-nav ul.nav > li > a:hover,
+#main-nav ul.nav > li.active > a {
     /*color: #000;*/
     background-color: #044687;
 }
 
-#main_nav ul.nav > li.more > a {
+#main-nav ul.nav > li.more > a {
     padding-right: 26px;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAECAYAAABodtTSAAAAMklEQVQYlWPctGnTGQYcwM/PzwSXHDJgYmBgwKWQKANghmDTQLQByIYgayTJAAYGBgYAwQgFQAVsQVAAAAAASUVORK5CYII=);
 }
 
 /* second-level menus */
-#main_nav ul.nav > li.more > ul {
+#main-nav ul.nav > li.more > ul {
     top: 40px;
 }
 
 /* all subnav */
-#main_nav ul.nav ul {
+#main-nav ul.nav ul {
     display: none;
     position: absolute;
     left: 0;
@@ -1925,15 +1925,15 @@ div.containerTitle.withColor {
 }
 
 /* make sure all sub-nav menus are wide enough */
-#main_nav ul.nav li li {
+#main-nav ul.nav li li {
     width: 100%;
 }
 
-/*#main_nav li li:hover {*/
+/*#main-nav li li:hover {*/
 /*background: !* #D8ECFF *! !* #EDF5FF *! #e5f2ff right center no-repeat;*/
 /*}*/
 
-#main_nav ul.nav li li a {
+#main-nav ul.nav li li a {
     padding: 0 30px 0 15px;
     line-height: 25px;
     font-size: 13px;
@@ -1944,23 +1944,23 @@ div.containerTitle.withColor {
     color: #222;
 }
 
-#main_nav ul.nav li li a:hover {
+#main-nav ul.nav li li a:hover {
     background-color: #e5f2ff;
 }
 
-#main_nav ul.nav li li.more > a {
+#main-nav ul.nav li li.more > a {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAYAAAA8sqwkAAAAPElEQVQYlWPctGnTGQYGBhMGKPDz82PAB5ig9Bm8qrBoIFoTExqfoCZ0DSZYVeHQQFAxsgaiFDMwMDAAAK8dBw4CH+ClAAAAAElFTkSuQmCC);
 }
 
 /* third-level menus */
-#main_nav ul.nav li li ul {
+#main-nav ul.nav li li ul {
     display: none;
     top: 0;
     margin-left: -2px;
     border: 1px solid #aaa;
 }
 
-#main_nav ul.nav ul,
+#main-nav ul.nav ul,
 .shadowed {
     -moz-box-shadow: 0 1px 4px rgba(132, 132, 132, 0.8);
     -webkit-box-shadow: 0 1px 4px rgba(132, 132, 132, 0.8);
@@ -3842,7 +3842,7 @@ textarea.xml-formatted {
 
     #page_wrapper,
     #xnat_power,
-    #main_nav > .inner,
+    #main-nav > .inner,
     #user-bar > .inner {
         width: 960px;
     }

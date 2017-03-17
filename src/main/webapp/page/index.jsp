@@ -2,25 +2,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<%--
-  ~ web: index.jsp
-  ~ XNAT http://www.xnat.org
-  ~ Copyright (c) 2005-2017, Washington University School of Medicine and Howard Hughes Medical Institute
-  ~ All Rights Reserved
-  ~
-  ~ Released under the Simplified BSD.
-  --%>
+<pg:html>
+    <!-- doc-head start -->
+    <pg:head title="" headTop="" headBottom="">
 
-<pg:wrapper>
-    <pg:xnat>
+        <!-- head content -->
 
-        <c:set var="incl" value="content.jsp"/>
+    </pg:head>
+    <!-- doc-head end -->
+    <!-- doc-body start -->
+    <pg:body id="" className="" bodyTop="" bodyBottom="">
 
+
+        <%-- get /page/content.jsp by default --%>
+        <c:set var="content" value="content.jsp"/>
+
+        <%-- or get a page that's requested in the 'view' query string parameter --%>
+        <%-- /page/?view=pagename --%>
         <c:if test="${not empty param.view}">
-            <c:set var="incl" value="/page/${param.view}/content.jsp"/>
+            <c:set var="content" value="/page/${param.view}/content.jsp"/>
         </c:if>
 
-        <jsp:include page="${incl}"/>
 
-    </pg:xnat>
-</pg:wrapper>
+
+        <jsp:include page="${content}"/>
+
+
+
+    </pg:body>
+    <!-- doc-body end -->
+</pg:html>
