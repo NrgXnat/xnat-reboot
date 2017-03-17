@@ -1,16 +1,9 @@
+<%--@elvariable id="siteConfigPreferences" type="org.nrg.xdat.preferences.SiteConfigPreferences"--%>
+<%--@elvariable id="themeService" type="org.nrg.xdat.services.impl.ThemeServiceImpl"--%>
 <%@ tag description="Initialize Variables" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
-<%--
-  ~ web: init.tag
-  ~ XNAT http://www.xnat.org
-  ~ Copyright (c) 2005-2017, Washington University School of Medicine and Howard Hughes Medical Institute
-  ~ All Rights Reserved
-  ~
-  ~ Released under the Simplified BSD.
-  --%>
 
 <c:if test="${empty requestScope.hasInit}">
 
@@ -39,12 +32,8 @@
         <c:set var="isGuest" value="true" scope="session"/>
     </sec:authorize>
 
-    <c:set var="themeName" value="${cookie.THEME_NAME.value}" scope="session"/>
-
-    <%-- if there's a theme specified in the request, use that --%>
-    <c:if test="${empty themeName && not empty param.theme}">
-        <c:set var="themeName" value="${param.theme}" scope="session"/>
-    </c:if>
+    <%--<sec:authentication property="username" var="USERNAME" scope="session"/>--%>
+    <%--<!-- ${USERNAME} -->--%>
 
     <%-- set 'siteRoot' to the root of your web app --%>
     <c:set var="siteRoot" value="${pageContext.request.contextPath}" scope="session"/>
@@ -54,13 +43,22 @@
         <c:set var="siteRoot" value="/${pageContext.request.contextPath}" scope="session"/>
     </c:if>
 
-    <c:set var="themeRoot" value="${siteRoot}/themes/${themeName}" scope="session"/>
-    <c:set var="pageRoot" value="${themeRoot}/page" scope="session"/>
+    <c:set var="themeName" value="${themeService.theme.name}" scope="request"/>
+    <c:set var="themePath" value="${themeService.theme.path}" scope="request"/>
+
+    <%-- if there's a theme specified in the request, use that --%>
+    <c:if test="${empty themeName && not empty param.theme}">
+        <c:set var="themeName" value="${param.theme}" scope="session"/>
+        <c:set var="themePath" value="${siteRoot}/themes/${themeName}" scope="request"/>
+    </c:if>
+
+    <c:set var="themeRoot" value="${siteRoot}/themes/${themeName}" scope="request"/>
+    <c:set var="pageRoot" value="${themeRoot}/page" scope="request"/>
 
     <%-- if no themeName is found, set vars to use root items --%>
-    <c:if test="${empty themeName}">
-        <c:set var="themeRoot" value="${siteRoot}" scope="session"/>
-        <c:set var="pageRoot" value="${siteRoot}/page" scope="session"/>
+    <c:if test="${empty themeName && empty themePath}">
+        <c:set var="themeRoot" value="${siteRoot}" scope="request"/>
+        <c:set var="pageRoot" value="${siteRoot}/page" scope="request"/>
     </c:if>
 
     <%-- get session expiration time --%>
@@ -75,8 +73,8 @@
     </c:if>
 
     <%-- is this page in a modal/dialog box --%>
-    <c:set var="isModal" value="${not empty param.modal && param.modal == 'true'}"/>
-    <c:set var="isDialog" value="${not empty param.dialog && param.dialog == 'true'}"/>
+    <c:set var="isModal" value="${not empty param.modal && param.modal == 'true'}" scope="page"/>
+    <c:set var="isDialog" value="${not empty param.dialog && param.dialog == 'true'}" scope="page"/>
 
     <c:set var="hasInit" value="true" scope="request"/>
 

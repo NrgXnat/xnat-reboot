@@ -224,7 +224,7 @@
 
 ${bodyTop}
 
-<div id="user_bar">
+<div id="user-bar">
     <div class="inner">
 
         <c:if test="${_user != '-' || sessionScope.isGuest}">
@@ -249,7 +249,7 @@ ${bodyTop}
 
         <div class="clear"></div>
     </div>
-</div><!-- /user_bar -->
+</div><!-- /user-bar -->
 
 <c:if test="${_user != '-' && page != 'setup'}">
 

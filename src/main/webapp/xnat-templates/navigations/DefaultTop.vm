@@ -96,7 +96,7 @@
 
 </style>
 
-<div id="user_bar">
+<div id="user-bar">
     <div class="inner">
         <img id="attention_icon" src="$content.getURI('images/attention.png')" style="display:none;" alt="attention needed - click for more info" title="attention needed - click for more info">
         #if($last_login)
@@ -163,7 +163,7 @@
             </div>
         #end
     </div>
-</div><!-- /user_bar -->
+</div><!-- /user-bar -->
 
 <script type="text/javascript">
     jq(function(){

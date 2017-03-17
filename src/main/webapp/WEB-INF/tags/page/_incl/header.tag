@@ -1,15 +1,6 @@
 <%@ tag description="Body Header" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%--
-  ~ web: header.tag
-  ~ XNAT http://www.xnat.org
-  ~ Copyright (c) 2005-2017, Washington University School of Medicine and Howard Hughes Medical Institute
-  ~ All Rights Reserved
-  ~
-  ~ Released under the Simplified BSD.
-  --%>
-
 <div id="old-ie">
     <!--[if lt IE 7]><p class="browsehappy">You are using an extremely
     <strong>outdated</strong> browser that is not supported. Please

@@ -1366,7 +1366,7 @@ span.sep {
 
 
 /* user bar stuff */
-#user_bar {
+#user-bar {
     height: 25px;
     line-height: 25px;
     font-size: 11px;
@@ -1376,20 +1376,20 @@ span.sep {
     background: #033769;
 }
 
-#user_bar > .inner {
+#user-bar > .inner {
     width: 1160px;
     margin: 0 auto;
 }
 
-#user_bar.no_menu {
+#user-bar.no_menu {
     /*width: 100%;*/
 }
 
-#user_bar > .inner {
+#user-bar > .inner {
     /*margin: 0 auto;*/
 }
 
-#user_bar a {
+#user-bar a {
     color: #66c7ff;
 }
 
@@ -3843,7 +3843,7 @@ textarea.xml-formatted {
     #page_wrapper,
     #xnat_power,
     #main_nav > .inner,
-    #user_bar > .inner {
+    #user-bar > .inner {
         width: 960px;
     }
 
