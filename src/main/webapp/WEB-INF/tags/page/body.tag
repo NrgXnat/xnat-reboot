@@ -8,7 +8,10 @@
 <%@ attribute name="bodyTop" %>
 <%@ attribute name="bodyBottom" %>
 
-<body id="${id}" class="${empty className ? 'xnat' : 'xnat '+className}">
+<c:set var="idAttr" value="${empty id ? '' : 'id=\"' + id + '\"'}"/>
+<c:set var="classValue" value="${empty className ? 'xnat' : 'xnat '+ className}"/>
+
+<body ${idAttr} class="${classValue}">
 
 <input type="hidden" name="pageName" value="${requestScope.pageName}">
 
@@ -27,7 +30,6 @@ ${bodyTop}
 <incl:main-nav>
     <!-- incl:main-nav -->
 </incl:main-nav>
-
 
 <%--<incl:header/>--%>
 

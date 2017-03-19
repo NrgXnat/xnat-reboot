@@ -51,7 +51,10 @@
     <script src="${SCRIPTS}/lib/jquery-plugins/jquery.hasClasses.js"></script>
     <script src="${SCRIPTS}/lib/jquery-plugins/jquery.dataAttr.js"></script>
     <script src="${SCRIPTS}/lib/jquery-plugins/jquery.form.js"></script>
-    <script src="${SCRIPTS}/lib/dateTimePicker/jquery.datetimepicker.${js}"></script>
+
+    <!-- date input stuff -->
+    <link rel="stylesheet" type="text/css" href="${SITE_ROOT}/scripts/lib/dateTimePicker/jquery.datetimepicker.min.css?${versionString}">
+    <script src="${SCRIPTS}/lib/dateTimePicker/jquery.datetimepicker.full.${js}"></script>
 
     <!-- other libraries -->
     <script src="${SCRIPTS}/lib/spawn/spawn.js"></script>

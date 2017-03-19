@@ -1,3 +1,4 @@
+<%--@elvariable id="siteConfigPreferences" type="org.nrg.xdat.preferences.SiteConfigPreferences"--%>
 <%@ page session="true" contentType="text/html" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
@@ -8,7 +9,7 @@
 
 <pg:html>
     <!-- pg:head start -->
-    <pg:head title="" headTop="" headBottom="${headBottom}">
+    <pg:head title="${siteConfigPreferences.siteId}" headTop="" headBottom="${headBottom}">
 
         <!-- head content -->
 

@@ -21,18 +21,21 @@
         customPage.getPage(null, $pageContent);
 
         $(window).on('hashchange', function(){
+            if (window.location.hash.indexOf('#!') === 0) {
+                return false;
+            }
             var newPageName = customPage.getPageName();
-            if (newPageName !== pageName && !/^(#!)/.test(window.location.hash)) {
+            if (newPageName !== pageName) {
                 customPage.getPage('', $pageContent);
             }
         });
 
     })();
 
-    $(window).on('load', function(){
+    $(function(){
         $('body').on('click.bang', '[href^="#!"]', function(e){
             e.preventDefault();
         });
-    })
+    });
 
 </script>
