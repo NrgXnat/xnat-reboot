@@ -3,5 +3,8 @@
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
 <%-- blank template --%>
+<pg:content>
 
-<small>(it's blank)</small>
+    <small>(it's blank)</small>
+
+</pg:content>

@@ -1173,7 +1173,7 @@ body.xnat .chosen-container {
 }
 
 /* page layout styles */
-#page_wrapper {
+#page-wrapper {
     width: 1160px;
     min-height: 660px;
     margin: 0 auto;
@@ -1734,7 +1734,7 @@ html body.popup {
     background: #fff !important ;
 }
 
-body.popup #page_wrapper {
+body.popup #page-wrapper {
     padding: 30px ;
     /*width: auto;*/
 }
@@ -3840,14 +3840,14 @@ textarea.xml-formatted {
 /***********************************************/
 @media screen and (max-width: 1200px) {
 
-    #page_wrapper,
+    #page-wrapper,
     #xnat_power,
     #main-nav > .inner,
     #user-bar > .inner {
         width: 960px;
     }
 
-    /*#page_wrapper,*/
+    /*#page-wrapper,*/
     /*#header,*/
     /*#layout_content,*/
     /*#home-data,*/

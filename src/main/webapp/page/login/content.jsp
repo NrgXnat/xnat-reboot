@@ -2,4 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<%-- new login page --%>
+<pg:content>
+    <%-- TODO: new login page --%>
+</pg:content>

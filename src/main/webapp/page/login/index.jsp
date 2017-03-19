@@ -3,18 +3,18 @@
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
 <pg:html>
-    <!-- doc-head start -->
+    <!-- pg:head start -->
     <pg:head title="" headTop="" headBottom="">
 
         <!-- head content -->
 
     </pg:head>
-    <!-- doc-head end -->
-    <!-- doc-body start -->
+    <!-- pg:head end -->
+    <!-- pg:body start -->
     <pg:body id="" className="" bodyTop="" bodyBottom="">
 
         <jsp:include page="content.jsp"/>
 
     </pg:body>
-    <!-- doc-body end -->
+    <!-- pg:body end -->
 </pg:html>

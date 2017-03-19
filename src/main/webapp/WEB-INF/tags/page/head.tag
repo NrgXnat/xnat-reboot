@@ -1,3 +1,4 @@
+<%--@elvariable id="siteConfigPreferences" type="org.nrg.xdat.preferences.SiteConfigPreferences"--%>
 <%@ tag description="Head Element" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
@@ -18,7 +19,7 @@
 
     ${headTop}
 
-    <title>${empty title ? 'XNAT' : title}</title>
+    <title>${siteConfigPreferences.siteId} - ${empty title ? '' : title}</title>
 
     <incl:base-js>
         ${baseJS}

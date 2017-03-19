@@ -117,7 +117,7 @@
                     <li class="more"><a href="#adminbox">Administer</a>
                         <ul>
                             <!-- Sequence: 10 -->
-                            <li><a href="${SITE_ROOT}/page/admin/">Site Administration</a></li>
+                            <li><a href="${SITE_ROOT}/page/#/admin/">Site Administration</a></li>
                             <li><a href="${SITE_ROOT}/app/template/XDATScreen_admin.vm">Users</a></li>
                             <li><a href="${SITE_ROOT}/app/template/XDATScreen_groups.vm">Groups</a></li>
                             <li><a href="${SITE_ROOT}/app/template/XDATScreen_dataTypes.vm">Data Types</a></li>

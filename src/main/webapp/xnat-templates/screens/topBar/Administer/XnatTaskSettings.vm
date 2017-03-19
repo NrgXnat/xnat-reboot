@@ -1,6 +1,7 @@
 <!-- Sequence: 19 -->
 <li id="view-task-settings">
-    <a href="${SITE_ROOT}/app/template/Page.vm?view=admin/tasks">XNAT Task Settings</a>
+##    <a href="${SITE_ROOT}/app/template/Page.vm?view=admin/tasks">XNAT Task Settings</a>
+    <a href="${SITE_ROOT}/page/#/admin/tasks/">XNAT Task Settings</a>
 </li>
 <script src="${SITE_ROOT}/scripts/xnat/admin/xnatTaskSettings.js"></script>
 <script>

@@ -2,19 +2,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<%--
-  ~ web: index.jsp
-  ~ XNAT http://www.xnat.org
-  ~ Copyright (c) 2005-2017, Washington University School of Medicine and Howard Hughes Medical Institute
-  ~ All Rights Reserved
-  ~
-  ~ Released under the Simplified BSD.
-  --%>
+<pg:html>
+    <!-- pg:head start -->
+    <pg:head title="" headTop="" headBottom="">
 
-<pg:wrapper>
-    <pg:xnat>
+        <!-- head content -->
 
-        <jsp:include page="content.jsp"/>
+    </pg:head>
+    <!-- pg:head end -->
+    <!-- pg:body start -->
+    <pg:body id="" className="" bodyTop="" bodyBottom="">
 
-    </pg:xnat>
-</pg:wrapper>
+
+        <%-- get /page/content.jsp by default --%>
+        <c:set var="content" value="content.jsp"/>
+        <jsp:include page="${content}"/>
+
+
+
+    </pg:body>
+    <!-- pg:body end -->
+</pg:html>

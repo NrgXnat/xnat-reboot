@@ -1,5 +1,5 @@
 <!-- path: xnat-templates/navigations/htmlClose -->
-</div><!-- /page_wrapper -->
+</div><!-- /page-wrapper -->
 $navigation.setTemplate("/powered_by.vm")
 <script type="text/javascript" src="$content.getURI('scripts/footer.js')"></script>
 </body>

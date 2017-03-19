@@ -1,4 +1,4 @@
-<%@ tag description="Document Wrapper" pageEncoding="UTF-8" %>
+<%@ tag description="HTML Document Wrapper" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>

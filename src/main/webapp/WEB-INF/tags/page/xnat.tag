@@ -5,14 +5,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<%--
-  ~ web: xnat.tag
-  ~ XNAT http://www.xnat.org
-  ~ Copyright (c) 2005-2017, Washington University School of Medicine and Howard Hughes Medical Institute
-  ~ All Rights Reserved
-  ~
-  ~ Released under the Simplified BSD.
-  --%>
 
 <%@ attribute name="page" %>
 <%@ attribute name="title" %>
@@ -20,6 +12,7 @@
 <%@ attribute name="headBottom" %>
 <%@ attribute name="bodyTop" %>
 <%@ attribute name="bodyBottom" %>
+
 
 <head>
 
@@ -637,7 +630,7 @@ ${bodyTop}
 
 </c:if>
 
-<div id="page_wrapper">
+<div id="page-wrapper">
 
     <div id="header" class="main_header">
         <div class="pad">
@@ -798,7 +791,7 @@ ${bodyTop}
 
     <div id="mylogger"></div>
 </div>
-<!-- /page_wrapper -->
+<!-- /page-wrapper -->
 <div class="clear"></div>
 <div id="xnat_power"></div>
 

@@ -29,6 +29,17 @@ XNAT.app = getObject(XNAT.app||{});
 
     var customPage = getObject(XNAT.app.customPage||{});
 
+    // get page name for CURRENT page /page/#/page-name
+    customPage.getPageName = function(url, end){
+        var loc = url || window.location.href;
+        var urlParts = loc.split('/page/#/');
+        var pageName = '';
+        if (urlParts.length > 1) {
+            pageName = urlParts[1].split(end||'/#')[0];
+        }
+        return pageName;
+    };
+
     customPage.getName = function(end){
         var name = getQueryStringValue('view');
         name = name || getUrlHashValue('#view=', end);
@@ -51,7 +62,7 @@ XNAT.app = getObject(XNAT.app||{});
             end  = name[1] || end;
             name = name[0] || '';
         }
-        
+
         name = name || customPage.getName(end);
 
         // don't even bother if there's no name

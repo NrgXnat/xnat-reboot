@@ -8,7 +8,7 @@
 <%@ attribute name="bodyTop" %>
 <%@ attribute name="bodyBottom" %>
 
-<body id="${id}" class="${className}">
+<body id="${id}" class="${empty className ? 'xnat' : 'xnat '+className}">
 
 <input type="hidden" name="pageName" value="${requestScope.pageName}">
 
@@ -24,14 +24,12 @@
 ${bodyTop}
 
 <incl:user-bar logoutUrl="${SITE_ROOT}/app/action/LogoutUser"/>
+<incl:main-nav>
+    <!-- incl:main-nav -->
+</incl:main-nav>
 
 
-<incl:header/>
-
-
-
-<div id="page-body">
-    <div class="pad">
+<%--<incl:header/>--%>
 
 
 
@@ -39,12 +37,7 @@ ${bodyTop}
 
 
 
-    </div>
-</div>
-
-
-
-<incl:footer/>
+<%--<incl:footer/>--%>
 
 ${bodyBottom}
 

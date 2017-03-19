@@ -32,7 +32,7 @@ $page.setBgColor($ui.bgcolor)
     </div>
 </div>
 
-<div id="page_wrapper">
+<div id="page-wrapper">
 
 <div id="header" class="main_header"><div class="pad">
 #if ($expired || $forgot)

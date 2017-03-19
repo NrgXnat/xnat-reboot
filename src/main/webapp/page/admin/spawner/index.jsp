@@ -2,21 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<%--
-  ~ web: index.jsp
-  ~ XNAT http://www.xnat.org
-  ~ Copyright (c) 2005-2017, Washington University School of Medicine and Howard Hughes Medical Institute
-  ~ All Rights Reserved
-  ~
-  ~ Released under the Simplified BSD.
-  --%>
+<pg:html page="Manage Spawner Elements">
+    <!-- pg:head start -->
+    <pg:head title="Manage Spawner Elements" headTop="" headBottom="">
 
-<c:set var="pageName" value="spawner" scope="request"/>
+        <!-- head content -->
 
-<pg:wrapper>
-    <pg:xnat title="Manage Spawner">
+    </pg:head>
+    <!-- pg:head end -->
+    <!-- pg:body start -->
+    <pg:body id="" className="" bodyTop="" bodyBottom="">
 
         <jsp:include page="content.jsp"/>
 
-    </pg:xnat>
-</pg:wrapper>
+    </pg:body>
+    <!-- pg:body end -->
+</pg:html>

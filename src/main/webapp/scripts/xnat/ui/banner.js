@@ -238,13 +238,13 @@ var XNAT = getObject(XNAT || {});
             content: text || 'Hello.',
             effect: 'fade',
             hold: hold || 0,
-            container: '#page_wrapper',
+            container: '#page-wrapper',
             addClass: 'header-banner'
         };
         var bnr = new Banner(opts);
         return bnr.render(opts.container, 'prepend');
     };
-    
+
     banner.saved = function(hold, text){
         return banner.headerBanner(hold||2000, text||'Saved.', 'success');
     };

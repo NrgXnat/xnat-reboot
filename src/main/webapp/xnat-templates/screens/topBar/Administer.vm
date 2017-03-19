@@ -1,7 +1,7 @@
 <!-- Sequence: 40 -->
 #if($turbineUtils.isSiteAdmin($user))
 
-<li><a href="#adminbox">Administer</a>
+<li><a href="#!">Administer</a>
     <ul>
         #addGlobalCustomScreens("topBar/Administer")
     </ul>
