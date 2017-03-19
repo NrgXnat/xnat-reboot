@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <c:import url="/xapi/users/profiles" var="userProfiles"/>
+                    <%--<c:import url="/xapi/users/profiles" var="userProfiles"/>--%>
                     <c:import url="/xapi/users/active" var="activeUsers"/>
                     <c:import url="/xapi/siteConfig" var="siteConfig"/>
 

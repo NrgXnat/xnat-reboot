@@ -13,6 +13,8 @@
 
     <pg:restricted msg="${message}">
 
+        <script src="${SITE_ROOT}/scripts/xnat/admin/xnatTaskSettings.js"></script>
+
         <div id="admin-page">
             <header id="content-header">
                 <h2 class="pull-left"></h2>

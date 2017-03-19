@@ -9,6 +9,7 @@
 
 
 <script>
+
     (function(){
 
         var customPage   = XNAT.app.customPage;
@@ -21,10 +22,17 @@
 
         $(window).on('hashchange', function(){
             var newPageName = customPage.getPageName();
-            if (newPageName !== pageName) {
+            if (newPageName !== pageName && !/^(#!)/.test(window.location.hash)) {
                 customPage.getPage('', $pageContent);
             }
         });
 
     })();
+
+    $(window).on('load', function(){
+        $('body').on('click.bang', '[href^="#!"]', function(e){
+            e.preventDefault();
+        });
+    })
+
 </script>
