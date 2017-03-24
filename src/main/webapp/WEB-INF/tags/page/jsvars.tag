@@ -25,6 +25,7 @@
     _app.session.endString   = new Date(_app.session.endTime).toString();
     _app.session.timeout     = _app.session.endTime;
 
+    console.log('_app:');
     console.log(_app);
 
     window.PAGE = _app;

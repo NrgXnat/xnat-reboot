@@ -336,7 +336,7 @@ public class XnatExpiredPasswordFilter extends GenericFilterBean {
         try {
             String uri = new URI(request.getRequestURI()).getPath();
             if (uri.endsWith("XDATScreen_UpdateUser.vm") && request.getParameterMap().isEmpty()) {
-                response.sendRedirect(TurbineUtils.GetFullServerPath() + "/app/template/Login.vm");
+                response.sendRedirect(TurbineUtils.GetFullServerPath() + "/page/login/");
             }
         } catch (URISyntaxException ignored) {
         }

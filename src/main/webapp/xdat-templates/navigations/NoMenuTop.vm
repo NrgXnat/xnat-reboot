@@ -37,7 +37,7 @@ $page.setBgColor($ui.bgcolor)
 
 <div id="page-wrapper">
 
-<div id="header" class="main_header"><div class="pad">
+<div id="header" class="main-header"><div class="pad">
     <a id="header_logo" href="$link.setPage("Index.vm")#if($data.getParameters().getString('par'))/par/$data.getParameters().getString('par')#end">
         #parse("/screens/Logo.vm")
     </a>

@@ -98,8 +98,8 @@ XNAT.app = getObject(XNAT.app||{});
         // if we're using a theme, check that theme's folder
         if (XNAT.theme){
             themePaths = setPaths(name, [
-                '/themes/' + XNAT.theme,
                 '/themes/' + XNAT.theme + '/page',
+                '/themes/' + XNAT.theme,
                 '/themes/' + XNAT.theme + '/pages'
             ]);
             pagePaths = themePaths.concat(pagePaths);

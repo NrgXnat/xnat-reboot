@@ -5,16 +5,16 @@ $!template.setLayoutTemplate("Login.vm")
 #set ($siteId = $siteConfig.siteId)
 $page.setTitle("$siteId - Register")
 
-<div id="login_area">
-    <div id="register_box_container">
-        <div id="register_box">
-            <form name="form2" method="post" action="$link.setAction("XDATForgotLogin")" class="friendlyForm" id="register_form">
+<div id="login-area">
+    <div id="register-box-container">
+        <div id="register-box">
+            <form name="form2" method="post" action="$link.setAction("XDATForgotLogin")" class="xnat-form" id="register-form">
                 <p>Did you forget your username? Enter your email address and the matching username will be emailed to you.</p>
                 <p><label for="email">Email</label><input type="text" name="email" value="$!email"></p>
                 <p class="form-submit"><input type="submit" value="Request"></p>
 
                 <hr style="margin: 2em 0" />
-                <p id="register_forgot">
+                <p id="register-forgot">
                     <a href="javascript: openVerificationModal()">Resend email verification</a>
                     <span class="sep"></span>
                     <a href="$link.setPage("Login.vm")">Return to Login Page</a>
@@ -23,14 +23,14 @@ $page.setTitle("$siteId - Register")
         </div>
     </div>
 
-    <div id="login_box_container">
-        <div id="login_box">
+    <div id="login-box-container">
+        <div id="login-box">
             #if ( $data.getMessage() )
                 <div class="alert">
                     $data.getMessage()
                 </div>
             #end
-            <form name="form3" method="post" action="$link.setAction("XDATForgotLogin")" class="friendlyForm" id="login_form">
+            <form name="form3" method="post" action="$link.setAction("XDATForgotLogin")" class="xnat-form" id="login-form">
                 <p>Did you forget your password? Enter your username and a new password will be emailed to you.</p>
                 <p><label for="username">Username</label><input type="text" name="username" value="$!username"></p>
                 <p class="form-submit"><input type="submit" value="Request"> </p>
@@ -64,7 +64,7 @@ $page.setTitle("$siteId - Register")
             content: verificationRequestModalContent,
             height: 240,
             top: modal_top,
-            className: 'friendlyForm',
+            className: 'xnat-form',
             okAction: function(obj){
                 var _emailToVerify = $(obj.__modal).find('#requestEmail').val();
                 requestVerificationEmail(_emailToVerify);

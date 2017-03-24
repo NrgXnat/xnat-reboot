@@ -6,9 +6,9 @@
 <pg:content>
 
     <c:set var="message">
-        <incl:redirect>
+        <pg:redirect>
             <div class="error">Not authorized. Redirecting...</div>
-        </incl:redirect>
+        </pg:redirect>
     </c:set>
 
     <pg:restricted msg="${message}">

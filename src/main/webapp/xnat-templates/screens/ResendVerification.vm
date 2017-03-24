@@ -2,7 +2,7 @@
 $!template.setLayoutTemplate("Login.vm")
 $page.setTitle("Email Verification Sent")
 
-<div id="login_area">
+<div id="login-area">
     #if($data.getMessage())
         <div class="message" style="border-bottom: 0">
             <p><strong>Note: </strong><br />$data.getMessage()</p>

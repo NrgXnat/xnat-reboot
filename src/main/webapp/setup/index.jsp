@@ -3,15 +3,19 @@
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
 <pg:html>
+
+    <%-- hide the main nav on setup page --%>
+    <c:set var="mainNav" value="false" scope="request"/>
+
     <!-- pg:head start -->
-    <pg:head title="" headTop="" headBottom="">
+    <pg:head title="Setup" headTop="" headBottom="">
 
         <!-- head content -->
 
     </pg:head>
     <!-- pg:head end -->
     <!-- pg:body start -->
-    <pg:body id="" className="" bodyTop="" bodyBottom="">
+    <pg:body page="setup" id="xnat-setup" className="setup" bodyTop="" bodyBottom="">
 
         <jsp:include page="content.jsp"/>
 

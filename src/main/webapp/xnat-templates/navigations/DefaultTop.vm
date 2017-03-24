@@ -115,7 +115,7 @@
                     <span class="tip shadowed" style="top:20px;z-index:10000;white-space:normal;left:-150px;width:300px;background-color:#ffc;">Your XNAT session will auto-logout after a certain period of inactivity. You can reset that timer without reloading the page by clicking "renew."</span>
                 </span>
                 ## some kind of default text needs to be there so stuff doesn't shift around before the timer functions kick in
-                Auto-logout in: <b id="timeLeft">-:--:--</b> - <a id="timeLeftRenew" href="javascript:" onClick="XNAT.app.timeout.handleOk()">renew</a> <b>|</b> <a id="logout_user" href="$link.setAction("LogoutUser")">Logout</a></span>
+                Auto-logout in: <b id="timeLeft">-:--:--</b> - <a id="timeLeftRenew" href="javascript:" onClick="XNAT.app.timeout.handleOk()">renew</a> <b>|</b> <a id="logout-user" href="$link.setAction("LogoutUser")">Logout</a></span>
                 <script type="text/javascript">
                     Cookies.set('guest','false',{path:'/'});
                 </script>
@@ -254,7 +254,7 @@
         mainNavBackdrop.on('click', mainNavClose);
 
         // clicking the "Logout" link sets the warning bar cookie to 'OPEN' so it's available if needed on next login
-        jq('#logout_user').click(function(){
+        jq('#logout-user').click(function(){
             Cookies.set('WARNING_BAR', 'OPEN', { path: '/' });
             Cookies.set('NOTIFICATION_MESSAGE', 'OPEN', { path: '/' });
         });
@@ -266,7 +266,7 @@
 
 <div id="page-wrapper">
 
-<div id="header" class="main_header"><div class="pad">
+<div id="header" class="main-header"><div class="pad">
 
     #if($siteConfig.siteWideAlertStatus == "2")
         <div class="$siteConfig.siteWideAlertType headNotification hidden">
@@ -302,7 +302,7 @@
         // adjust height of header if logo is taller than 65px
         var hdr_logo_height = header_logo$.height();
         if (hdr_logo_height > 65) {
-            jq('.main_header').height(hdr_logo_height + 10);
+            jq('.main-header').height(hdr_logo_height + 10);
         }
 
         ## Commented out 2016/09/02 (XNAT-4501).  I don't think we want to do this (See home page when this takes effect)

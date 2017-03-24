@@ -234,7 +234,7 @@ ${bodyTop}
                 <b id="timeLeft">-:--:--</b> -
                 <a id="timeLeftRenew" href="#!">renew</a>
                 <b>|</b>
-                <a id="logout_user" href="${SITE_ROOT}/app/action/LogoutUser">Logout</a>
+                <a id="logout-user" href="${SITE_ROOT}/app/action/LogoutUser">Logout</a>
             </span>
             <script src="${SITE_ROOT}/scripts/xnat/app/timeout.js"></script>
 
@@ -498,7 +498,7 @@ ${bodyTop}
                     );
 
                     // clicking the "Logout" link sets the warning bar cookie to 'OPEN' so it's available if needed on next login
-                    jq('#logout_user').click(function(){
+                    jq('#logout-user').click(function(){
                         Cookies.set('WARNING_BAR', 'OPEN', {path: '/'});
                         Cookies.set('NOTIFICATION_MESSAGE', 'OPEN', {path: '/'});
                     });
@@ -608,7 +608,7 @@ ${bodyTop}
                 );
 
                 // clicking the "Logout" link sets the warning bar cookie to 'OPEN' so it's available if needed on next login
-                jq('#logout_user').click(function(){
+                jq('#logout-user').click(function(){
                     Cookies.set('WARNING_BAR', 'OPEN', {path: '/'});
                     Cookies.set('NOTIFICATION_MESSAGE', 'OPEN', {path: '/'});
                 });
@@ -632,10 +632,10 @@ ${bodyTop}
 
 <div id="page-wrapper">
 
-    <div id="header" class="main_header">
+    <div id="header" class="main-header">
         <div class="pad">
             <a id="header_logo" href="${SITE_ROOT}/" style="display: none;" title="XNAT version Unknown">
-                <img class="logo_img" src="<c:url value="${siteConfigPreferences.siteLogoPath}"/>" style="border:none;">
+                <img class="logo-img" src="<c:url value="${siteLogoPath}"/>" style="border:none;">
             </a>
         </div>
     </div>
@@ -646,12 +646,12 @@ ${bodyTop}
 
         XNAT.app.adjustHeaderAndNavForLogoSize = function(){
 
-            var header_logo$ = $('#header_logo');
+            var header_logo$ = jq('#header_logo');
 
             // adjust height of header if logo is taller than 65px
             var hdr_logo_height = header_logo$.height();
             if (hdr_logo_height > 65) {
-                jq('.main_header').height(hdr_logo_height + 10);
+                jq('.main-header').height(hdr_logo_height + 10);
             }
 
             //Commented out 2016/09/02 (XNAT-4501).  I don't think we want to do this (See home page when this takes effect)

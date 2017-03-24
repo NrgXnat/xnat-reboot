@@ -14,7 +14,7 @@ $page.setTitle("$siteId - Please Login")
     $page.addAttribute("onLoad", "document.getElementById('username').focus();")
 
 <script src="$content.getURI("scripts/lib/epicEditor/js/epiceditor.js")"></script>
-<div id="login_area">
+<div id="login-area">
 
     <!--[if lte IE 8]>
     <div id="ie8_error" class="error" style="display:none;margin-bottom:4em;background-image:none;z-index:9">
@@ -34,7 +34,7 @@ $page.setTitle("$siteId - Please Login")
 
 #if($turbineUtils.GetPassedParameter("par",$data))
 ## create custom layout when parameters are passed to the login page from an external link.
-    <div id="login_welcome">
+    <div id="login-welcome">
         #if($siteConfig.siteDescriptionType == "Text")
             <div id="siteDescription"></div>
             <textarea id="siteDescriptionMd" style="display: none;">$siteConfig.siteDescriptionText</textarea>
@@ -53,15 +53,15 @@ $page.setTitle("$siteId - Please Login")
     </div>
     #end
 
-    <div id="register_box_container">
+    <div id="register-box-container">
         <h3><span>New User Registration</span> <button class="btn btn-sm" onclick="showLogin()">Already Have an Account?</button></h3>
         <div class="clear"></div>
-        <div id="register_box">
-            #parse("/screens/register_box.vm")
+        <div id="register-box">
+            #parse("/screens/register-box.vm")
         </div>
     </div>
 
-    <div id="login_box_container" class="hidden">
+    <div id="login-box-container" class="hidden">
         <h3><span>Existing User Login</span> <button class="btn btn-sm" onclick="showRegistration()">Register?</button> </h3>
         <div class="clear"></div>
         <div class="message">
@@ -70,8 +70,8 @@ $page.setTitle("$siteId - Please Login")
             <p>Not what you want? <a href="$content.getURI('/app/template/Login.vm')"><strong>Default Log In Page</strong></a></p>
         </div>
         <div class="clear" style="margin:2em 0;"></div>
-        <div id="login_box">
-            <form name="form1" method="post" action="$content.getURI("/login")" class="noHide friendlyForm validate" id="login_form">
+        <div id="login-box">
+            <form name="form1" method="post" action="$content.getURI("/login")" class="noHide xnat-form validate" id="login-form">
                 #if($login_methods && $login_methods.size() == 0)
                     <input type="hidden" id="login_method" name="login_method" value="Database">
                 #elseif($login_methods && $login_methods.size() > 1)
@@ -104,10 +104,10 @@ $page.setTitle("$siteId - Please Login")
                 </p>
 
                 <p class="form-submit">
-                        <span id="register_forgot">
+                        <span id="register-forgot">
                             <a href="$link.setPage("ForgotLogin.vm")#if($turbineUtils.GetPassedParameter('par',$data))/par/$turbineUtils.GetPassedParameter('par',$data)#end">Forgot login or password?</a>
                         </span>
-                    <button class="submit btn" id="loginButton" type="submit" name="login">Login</button>
+                    <button class="submit btn" id="login-button" type="submit" name="login">Login</button>
                 </p>
 
                 #foreach($key in $!turbineUtils.GetDataParameterHash($data).keySet())
@@ -123,19 +123,19 @@ $page.setTitle("$siteId - Please Login")
 
     <script>
         function showLogin() {
-            jq('#register_box_container').addClass('hidden');
-            jq('#login_box_container').removeClass('hidden');
+            jq('#register-box-container').addClass('hidden');
+            jq('#login-box-container').removeClass('hidden');
         }
         function showRegistration() {
-            jq('#register_box_container').removeClass('hidden');
-            jq('#login_box_container').addClass('hidden');
+            jq('#register-box-container').removeClass('hidden');
+            jq('#login-box-container').addClass('hidden');
         }
     </script>
 
 #else
 ## standard layout for login page
 
-    <div id="login_welcome">
+    <div id="login-welcome">
         #if($siteConfig.siteDescriptionType == "Text")
             <div id="siteDescription"></div>
             <textarea id="siteDescriptionMd" style="display: none;">$siteConfig.siteDescriptionText</textarea>
@@ -148,7 +148,7 @@ $page.setTitle("$siteId - Please Login")
         #end
     </div>
 
-    <div id="login_box">
+    <div id="login-box">
 
         #if($data.getMessage())
         <div class="message" style="border-bottom: 0">
@@ -157,7 +157,7 @@ $page.setTitle("$siteId - Please Login")
 
         #end
 
-        <form name="form1" method="post" action="$content.getURI("/login")" class="noHide friendlyForm validate" id="login_form">
+        <form name="form1" method="post" action="$content.getURI("/login")" class="noHide xnat-form validate" id="login-form">
             #if($login_methods && $login_methods.size() == 0)
                 <input type="hidden" id="login_method" name="login_method" value="Database">
             #elseif($login_methods && $login_methods.size() > 1)
@@ -189,11 +189,11 @@ $page.setTitle("$siteId - Please Login")
             </p>
 
             <p class="form-submit">
-                <span id="register_forgot">
+                <span id="register-forgot">
                     <a href="$link.setPage("Register.vm")#if($turbineUtils.GetPassedParameter('par',$data))/par/$turbineUtils.GetPassedParameter('par',$data)#end">Register</a>
                     <a href="$link.setPage("ForgotLogin.vm")#if($turbineUtils.GetPassedParameter('par',$data))/par/$turbineUtils.GetPassedParameter('par',$data)#end">Forgot login or password?</a>
                 </span>
-                <button class="submit btn" id="loginButton" type="submit" name="login">Login</button>
+                <button class="submit btn" id="login-button" type="submit" name="login">Login</button>
             </p>
 
             <input type="hidden" name="XNAT_CSRF" value="">
@@ -212,7 +212,7 @@ $page.setTitle("$siteId - Please Login")
         var markedText = marked(mdtext);
         $('#siteDescription').html(markedText);
 
-        $('#login_form').on('submit', function(e){
+        $('#login-form').on('submit', function(e){
             
             var errorCount = 0;
 
@@ -273,7 +273,7 @@ $page.setTitle("$siteId - Please Login")
         return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
     }
     if (isIE() === 8) {
-        $('#login_box').addClass('disabled').find(':input').addClass('disabled').prop('disabled', true);
+        $('#login-box').addClass('disabled').find(':input').addClass('disabled').prop('disabled', true);
         $('#ie8_error').show();
     }
 </script>

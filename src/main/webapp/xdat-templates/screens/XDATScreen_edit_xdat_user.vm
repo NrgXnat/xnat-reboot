@@ -11,7 +11,7 @@ $page.setVlinkColor($ui.vlink)
 
 <div id="edit-user-container" class="user_account_settings">
 
-    <form name="form1" class="friendlyForm optOutOfXnatDefaultFormValidation" method="post" action="$link.setAction("ModifyUser")" onsubmit="return XNAT.app.register.validateForm()">
+    <form name="form1" class="xnat-form optOutOfXnatDefaultFormValidation" method="post" action="$link.setAction("ModifyUser")" onsubmit="return XNAT.app.register.validateForm()">
 
         <h3>Edit User Details</h3>
         <input type="hidden" name="xdat:user.xdat_user_id" value="$!item.getProperty("xdat_user_id")">

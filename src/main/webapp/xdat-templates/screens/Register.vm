@@ -4,5 +4,5 @@ $!template.setLayoutTemplate("NoMenu.vm")
 $page.setTitle("XDAT -- Register")
 $page.setBgColor($ui.bgcolor)
 <DIV VALIGN="top" id="register_page">
-#parse("/screens/register_box.vm")
+#parse("/screens/register-box.vm")
 </DIV>

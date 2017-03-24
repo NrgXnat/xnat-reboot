@@ -1,11 +1,18 @@
 <%--@elvariable id="siteConfigPreferences" type="org.nrg.xdat.preferences.SiteConfigPreferences"--%>
 <%--@elvariable id="themeService" type="org.nrg.xdat.services.impl.ThemeServiceImpl"--%>
-<%@ tag description="Initialize Variables" pageEncoding="UTF-8" %>
+<%@ tag description="Initialize Variables" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <c:if test="${empty requestScope.hasInit}">
+
+    <script> console.log('init') </script>
+
+    <%--<jsp:useBean scope="request" id="siteConfigPreferences" class="org.nrg.xdat.preferences.SiteConfigPreferences"/>--%>
+    <%--<jsp:useBean scope="request" id="siteConfigPreferences" type="org.nrg.xdat.preferences.SiteConfigPreferences"/>--%>
+    <%--<jsp:useBean scope="request" id="themeService" class="org.nrg.xdat.services.impl.ThemeServiceImpl"/>--%>
 
     <%-- set empty user info --%>
     <c:set var="loggedIn" value="false" scope="session"/>
@@ -18,19 +25,26 @@
         <c:set var="loggedIn" value="true" scope="session"/>
         <c:set var="username" value="${pageContext.request.userPrincipal.name}" scope="session"/>
     </sec:authorize>
+    <script> console.log('pageContext.request.userPrincipal.name "${pageContext.request.userPrincipal.name}"') </script>
+
+    <script> console.log('init.tag: sessionScope.loggedIn "${sessionScope.loggedIn}"') </script>
 
     <%-- REDIRECT IF NOT LOGGED IN (username will be '-') --%>
-    <c:if test="${username == '-'}">
-        <%--<c:redirect url="/app/template/Login.vm"/>--%>
+    <c:if test="${sessionScope.loggedIn == false}">
+        <%--<c:redirect url="/page/login/?active=false"/>--%>
     </c:if>
+
+    <script> console.log('username "${username}"') </script>
 
     <sec:authorize access="hasAnyRole('ADMIN')">
         <c:set var="isAdmin" value="true" scope="session"/>
     </sec:authorize>
+    <script> console.log('isAdmin "${isAdmin}"') </script>
 
     <sec:authorize access="hasAnyRole('ANONYMOUS')">
         <c:set var="isGuest" value="true" scope="session"/>
     </sec:authorize>
+    <script> console.log('isGuest "${isGuest}"') </script>
 
     <%--<sec:authentication property="username" var="USERNAME" scope="session"/>--%>
     <%--<!-- ${USERNAME} -->--%>
@@ -75,6 +89,14 @@
     <%-- is this page in a modal/dialog box --%>
     <c:set var="isModal" value="${not empty param.modal && param.modal == 'true'}" scope="page"/>
     <c:set var="isDialog" value="${not empty param.dialog && param.dialog == 'true'}" scope="page"/>
+
+    <%-- set vars here -- they should be accessible everywhere --%>
+    <c:set var="SITE_ROOT" value="${siteRoot}" scope="session"/>
+    <c:set var="THEME_ROOT" value="${themeRoot}" scope="session"/>
+    <c:set var="USERNAME" value="${username}" scope="session"/>
+    <c:set var="csrfToken" value="${csrfToken}" scope="session"/>
+    <c:set var="SCRIPTS" value="${SITE_ROOT}/scripts" scope="session"/>
+    <c:set var="versionString" value="v=1.7.3r1" scope="session"/>
 
     <c:set var="hasInit" value="true" scope="request"/>
 

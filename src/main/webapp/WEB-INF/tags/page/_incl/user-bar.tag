@@ -3,12 +3,21 @@
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>
 
+<%@ attribute name="page" %>
 <%@ attribute name="logoutUrl" %>
+
+<c:set var="userBar" value="${!empty requestScope.userBar ? requestScope.userBar : 'show'}"/>
+
+<c:if test="${userBar != 'show' || (page == 'login' || page == 'setup')}">
+    <c:set var="userBar" value="hide" scope="request"/>
+</c:if>
+
+<script> console.log('userBar "${userBar}"') </script>
 
 <div id="user-bar">
     <div class="inner">
 
-        <c:if test="${sessionScope.username != '-' || sessionScope.isGuest}">
+        <c:if test="${!empty userBar && userBar == 'show'}">
 
             <img id="attention_icon" src="${SITE_ROOT}/images/attention.png" style="display:none;" alt="attention needed - click for more info" title="attention needed - click for more info">
             <span id="user_info">Logged in as: &nbsp;<a href="${SITE_ROOT}/app/template/XDATScreen_UpdateUser.vm">${_user}</a> <b>|</b>
@@ -22,7 +31,7 @@
                 <b id="timeLeft">-:--:--</b> -
                 <a id="timeLeftRenew" href="#!">renew</a>
                 <b>|</b>
-                <a id="logout_user" href="${logoutUrl}">Logout</a>
+                <a id="logout-user" href="${logoutUrl}">Logout</a>
             </span>
             <script src="${SCRIPTS}/xnat/app/timeout.js"></script>
 
@@ -32,4 +41,5 @@
 
         <div class="clear"></div>
     </div>
-</div><!-- /user-bar -->
+</div>
+<!-- /user-bar -->

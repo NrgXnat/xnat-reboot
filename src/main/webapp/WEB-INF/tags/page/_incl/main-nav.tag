@@ -1,13 +1,20 @@
 <%@ tag description="Main Nav Menu" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>
 
 <%@ attribute name="page" %>
 
-<c:set var="PAGE" value="${not empty page ? page : PAGE}"/>
+<c:set var="mainNav" value="show" scope="request"/>
 
-<c:if test="${USERNAME != '-' && PAGE != 'setup'}">
+<c:if test="${page == 'login' || page == 'setup'}">
+    <c:set var="mainNav" value="hide" scope="request"/>
+</c:if>
+
+<script> console.log('mainNav "${mainNav}"') </script>
+
+<c:if test="${not empty mainNav && mainNav == 'show'}">
 
     <style type="text/css">
         #quickSearchForm .chosen-results {
@@ -92,7 +99,7 @@
                     </ul>
                 </li>
                 <!-- Sequence: 30 -->
-                <li class="more"><a href="#upload">Upload</a>
+                <li class="more"><a href="#!upload">Upload</a>
                     <ul>
                         <!-- Sequence: 10 -->
                         <!-- Upload/Default -->
@@ -114,7 +121,7 @@
                 <pg:restricted msg="<!-- non-admin -->">
 
                     <!-- Sequence: 40 -->
-                    <li class="more"><a href="#adminbox">Administer</a>
+                    <li class="more"><a href="#!admin">Administer</a>
                         <ul>
                             <!-- Sequence: 10 -->
                             <li><a href="${SITE_ROOT}/page/#/admin/">Site Administration</a></li>
@@ -134,7 +141,7 @@
                 <!-- Sequence: 50 -->
                 <!-- allowGuest: true -->
 
-                <li class="more"><a href="#tools">Tools</a>
+                <li class="more"><a href="#!tools">Tools</a>
                     <ul>
                         <!-- Sequence: 10 -->
                         <!-- allowGuest: true -->
@@ -262,7 +269,7 @@
                     );
 
                     // clicking the "Logout" link sets the warning bar cookie to 'OPEN' so it's available if needed on next login
-                    jq('#logout_user').click(function(){
+                    jq('#logout-user').click(function(){
                         Cookies.set('WARNING_BAR', 'OPEN', {path: '/'});
                         Cookies.set('NOTIFICATION_MESSAGE', 'OPEN', {path: '/'});
                     });
@@ -372,7 +379,7 @@
                 );
 
                 // clicking the "Logout" link sets the warning bar cookie to 'OPEN' so it's available if needed on next login
-                jq('#logout_user').click(function(){
+                jq('#logout-user').click(function(){
                     Cookies.set('WARNING_BAR', 'OPEN', {path: '/'});
                     Cookies.set('NOTIFICATION_MESSAGE', 'OPEN', {path: '/'});
                 });

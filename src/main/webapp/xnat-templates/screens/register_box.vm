@@ -9,9 +9,9 @@
 #* @vtlvariable name="data" type="org.apache.turbine.util.RunData" *#
 #* @vtlvariable name="link" type="org.apache.turbine.services.pull.tools.TemplateLink" *#
 #* @vtlvariable name="turbineUtils" type="org.nrg.xdat.turbine.utils.TurbineUtils" *#
-<!-- BEGIN xnat-templates/screens/register_box.vm -->
+<!-- BEGIN xnat-templates/screens/register-box.vm -->
 #parse("/screens/userValidationJS.vm")
-<form name="form2" id="register_form" class="friendlyForm optOutOfXnatDefaultFormValidation" method="post" action="$link.setAction("XDATRegisterUser")">
+<form name="form2" id="register-form" class="xnat-form optOutOfXnatDefaultFormValidation" method="post" action="$link.setAction("XDATRegisterUser")">
     #foreach($key in $!turbineUtils.GetDataParameterHash($data).keySet())
         #if ($key!="action" && $key!="template" &&$key!="password" &&$key!="phone" &&$key!="comments" &&!$key.startsWith("xdat:user") &&$key!="username" &&$key!="exception")
             <input type="hidden" name="$key" value="$!turbineUtils.escapeHTML($!turbineUtils.GetPassedParameter($key,$data))">
@@ -72,4 +72,4 @@
         });
     });
 </script>
-<!-- END xnat-templates/screens/register_box.vm -->
+<!-- END xnat-templates/screens/register-box.vm -->

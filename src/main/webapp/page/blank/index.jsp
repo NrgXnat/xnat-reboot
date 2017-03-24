@@ -4,7 +4,7 @@
 
 <pg:html>
     <!-- pg:head start -->
-    <pg:head title="" headTop="" headBottom="">
+    <pg:head title="Blank Page" headTop="" headBottom="">
 
         <!-- head content -->
 

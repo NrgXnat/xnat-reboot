@@ -3,17 +3,15 @@
 <%--<%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>--%>
 <%--<%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>--%>
 
+<%@ attribute name="href" %>
+<%@ attribute name="delay" %>
+
 <%-- redirect message --%>
 <jsp:doBody/>
 
-<%@ attribute name="delay" %>
-
-<c:if test="${empty delay}">
-    <c:set var="delay" value="2000"/>
-</c:if>
-
 <script>
+    console.log('redirect?');
     setTimeout(function(){
-        window.location.href = '<c:url value="/"/>'
-    }, +${delay})
+        window.location.href = '<c:url value="${empty href ? '/' : href}"/>'
+    }, +${empty delay ? '2000' : delay})
 </script>

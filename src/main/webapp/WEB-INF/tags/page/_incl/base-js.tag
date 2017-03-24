@@ -1,4 +1,4 @@
-<%@ tag description="Base Scripts" pageEncoding="UTF-8" %>
+<%@ tag description="Base Scripts" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>
@@ -64,6 +64,7 @@
     <script src="${SCRIPTS}/utils.js"></script>
 
 
+    <%-- insert page-specific js libraries in the body of <incl:base-js> tag --%>
     <jsp:doBody/>
 
 

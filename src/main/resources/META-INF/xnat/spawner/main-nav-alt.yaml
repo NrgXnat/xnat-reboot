@@ -1,0 +1,47 @@
+
+# menu item name is arbitrary but should be descriptive
+browse:
+    label: Browse
+    sequence: 10
+    id: main-nav-browse
+    menuItems:
+        projects:
+            label: Projects
+            sequence: 10
+            submenuItems:
+                projectList:
+                    id: browse-projects-list
+                    contents: "<!-- generated HTML -->"
+        favoriteProjects:
+            label: Favorite Projects
+            submenuItems:
+                favoritesList:
+                    id: browse-favorites-list
+                    contents: "<!-- generated HTML -->"
+
+new:
+    label: New
+    sequence: 20
+    id: main-nav-new
+    menuItems:
+        project:
+            label: Project
+            # who will be able to see/use this menu item?
+            restricted: admin, can-create-project
+            content: <? a|href=/page/#/project/create/ ?>
+        subject:
+            label: Subject
+            restricted: admin, can-create-subject
+            content: "<? a|href=/page/#/subject/create/{{= projectID ? '#project=projectID/' : '' =}} ?>"
+            # TODO: implement syntax for spawning elements:  <? a|href=#foo ?>  -->  spawn('a|href=#foo')
+        experiment:
+            label: Experiment
+            restricted: admin, can-create-experiment
+            vars: projectId=XNAT.context.projectID, subjectID=XNAT.context.subjectID
+            content: "<? a|href=/page/#/experiment/create/{{= projectID ? '#project=projectID/' : '' =}}/{{= subjectID ? '#subject={{subjectID}}/#' : '' =}} ?>"
+            # TODO: implement syntax to return eval'd expression from anonymous function:  {{= 'foo' =}}  -->  function(){ return 'foo' }
+
+# ROOT ELEMENT
+mainNav:
+    ${browse}
+    ${new}

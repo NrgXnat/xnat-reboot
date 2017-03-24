@@ -3,12 +3,13 @@
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>
 
+<%@ attribute name="page" %>
 <%@ attribute name="id" %>
 <%@ attribute name="className" %>
 <%@ attribute name="bodyTop" %>
 <%@ attribute name="bodyBottom" %>
 
-<body id="${id}" class="${empty className ? 'xnat' : 'xnat '+className}">
+<body id="${empty id ? 'xnat-app' : id}" class="${empty className ? 'xnat' : ('xnat '.concat(className))}">
 
 <input type="hidden" name="pageName" value="${requestScope.pageName}">
 
@@ -21,10 +22,14 @@
 </div>
 <!-- /#old-ie -->
 
+
 ${bodyTop}
 
-<incl:user-bar logoutUrl="${SITE_ROOT}/app/action/LogoutUser"/>
-<incl:main-nav>
+
+<incl:user-bar page="${page}" logoutUrl="${SITE_ROOT}/app/action/LogoutUser"/>
+<%--<incl:user-bar page="${page}" logoutUrl="${SITE_ROOT}/logout"/>--%>
+
+<incl:main-nav page="${page}">
     <!-- incl:main-nav -->
 </incl:main-nav>
 
@@ -39,6 +44,8 @@ ${bodyTop}
 
 <%--<incl:footer/>--%>
 
+
 ${bodyBottom}
+
 
 </body>

@@ -48,7 +48,7 @@ $page.setVlinkColor($ui.vlink)
 
 </script>
 <div class="user_account_settings">
-	<form name="form1" id="update_email" class="noHide friendlyForm optOutOfXnatDefaultFormValidation" method="post" action="$link.setAction("ModifyEmail")">
+	<form name="form1" id="update_email" class="noHide xnat-form optOutOfXnatDefaultFormValidation" method="post" action="$link.setAction("ModifyEmail")">
 
 		<h3>Change Email for $!item.getProperty("firstname") $!item.getProperty("lastname") ($!item.getProperty("login"))</h3>
 		<fieldset>

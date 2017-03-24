@@ -1237,37 +1237,43 @@ body.xnat .chosen-container {
     width: 100%;
 }
 
+/* login page container */
+#login-page {
+    width: 960px;
+    margin: 80px auto;
+}
+
 /* login box */
-#login_area {
+#login-area {
     line-height: 1.1;
     margin: 0 auto;
     padding-bottom: 100px;
     overflow: auto;
 }
 
-#login_area p {
+#login-area p {
     margin-bottom: 1em;
 }
 
-#login_area .message p {
+#login-area .message p {
     margin: 0;
 }
 
-#login_welcome {
+#login-welcome {
     width: 400px;
     float: left;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 0;
+    margin-left: 0;
 }
 
 /*@media screen and (min-width: 1000px) {*/
-/*#login_welcome {*/
+/*#login-welcome {*/
 /*margin: 0 100px 0 0;*/
 /*}*/
 /*}*/
 
-#login_box,
-#register_box {
+#login-box,
+#register-box {
     background-color: #f0f0f0;
     display: inline-block;
     line-height: 1.1;
@@ -1275,33 +1281,37 @@ body.xnat .chosen-container {
     width: 400px;
 }
 
-#login_box {
+#login-box {
     float: right;
-    margin-right: 20px;
+    margin-right: 0;
+    background: none;
 }
 
-#register_box {
+#register-box {
     float: none;
 }
 
-#login_box div.message,
-#register_box div.message {
+#login-box div.message,
+#register-box div.message {
     margin-bottom: 0;
 }
 
-#login_box [type="submit"],
-#register_box [type="submit"] {
+#login-box [type="submit"],
+#register-box [type="submit"] {
     font-size: 13px !important;
 }
 
-#login_form,
-#register_form {
+#login-form,
+#register-form {
     border: 1px solid #ccc;
-    padding: 20px;
 }
 
-#login_box_container,
-#register_box_container {
+#login-form > .pad {
+    margin: 20px 25px;
+}
+
+#login-box-container,
+#register-box-container {
     display: inline-block;
     position: relative;
     float: right;
@@ -1309,43 +1319,43 @@ body.xnat .chosen-container {
     width: 400px;
 }
 
-#login_box_container #login_box,
-#register_box_container #register_box {
+#login-box-container #login-box,
+#register-box-container #register-box {
     margin: 0;
 }
 
-#login_box_container > h3,
-#register_box_container > h3 {
+#login-box-container > h3,
+#register-box-container > h3 {
     height: 26px;
     margin-bottom: 20px;
     line-height: 26px;
     vertical-align: middle;
 }
 
-#login_box_container > h3 > span,
-#register_box_container > h3 > span {
+#login-box-container > h3 > span,
+#register-box-container > h3 > span {
     float: left;
 }
 
-#login_box_container > h3 > button,
-#register_box_container > h3 > button {
+#login-box-container > h3 > button,
+#register-box-container > h3 > button {
     float: right;
 }
 
-#register_forgot a,
-#register_forgot span.sep {
+#register-forgot a,
+#register-forgot span.sep {
     margin-right: 20px;
 }
 
-#site_description {
-    /* */
+#site-description {
+    margin-top: 20px;
 }
 
-#site_description img {
+#site-description img {
     width: 100%;
 }
 
-#site_description a {
+#site-description a {
     text-decoration: underline;
 }
 .user_account_settings {
@@ -3382,28 +3392,28 @@ label.switchbox > input:checked ~ .switchbox-off {
     display: none;
 }
 
-/* friendlyForm styles. Taken from ConnectomeDB. To be refactored / replaced in XNAT 1.7, most likely */
+/* xnat-form styles. Taken from ConnectomeDB. To be refactored / replaced in XNAT 1.7, most likely */
 fieldset,
-.friendlyForm fieldset {
+.xnat-form fieldset {
     border: solid #e4efff;
     border-width: 4px 0 0;
     margin: 1em 0;
     padding: 1em 0;
 }
 
-.friendlyForm fieldset.error {
+.xnat-form fieldset.error {
     background-color: #fffcc9;
     border-color: #cc9;
     color: #d40000;
 }
 
-.friendlyForm p {
+.xnat-form p {
     line-height: 1.4em !important;
     margin-bottom: 1em;
     position: relative;
 }
 
-.friendlyForm h4 {
+.xnat-form h4 {
     border-bottom: 1px solid #999;
     font-size: 14px;
     font-weight: bold;
@@ -3411,7 +3421,7 @@ fieldset,
     padding-bottom: 6px;
 }
 
-.friendlyForm label {
+.xnat-form label {
     color: #777;
     display: block;
     font-size: 12px !important;
@@ -3419,17 +3429,17 @@ fieldset,
     text-transform: uppercase;
 }
 
-.friendlyForm input[type=text],
-.friendlyForm input[type=password],
-.friendlyForm input[type=file],
-.friendlyForm textarea,
-.friendlyForm select {
+.xnat-form input[type=text],
+.xnat-form input[type=password],
+.xnat-form input[type=file],
+.xnat-form textarea,
+.xnat-form select {
     font-size: 14px !important;
     padding: 6px;
     width: 96%;
 }
 
-.friendlyForm input[type=file] {
+.xnat-form input[type=file] {
     border: 1px solid #e0e0e0;
     border-radius: 3px;
     margin: 1em 0;
@@ -3479,7 +3489,7 @@ fieldset,
     margin-left: 30px !important;
 }
 
-.friendlyForm p.error {
+.xnat-form p.error {
     color: #c33;
     font-size: 12px !important;
     font-weight: bold;
@@ -3544,6 +3554,7 @@ fieldset,
 }
 
 p.form-submit {
+    margin: 20px 0;
     font-size: 12px !important;
     text-align: right;
 }
@@ -3559,31 +3570,31 @@ p.form-submit {
     float: right;
 }
 
-.friendlyForm .inputWrapper {
+.xnat-form .inputWrapper {
     background-color: #fff;
     border: none;
 }
 
-.friendlyForm.mini .inputWrapper {
+.xnat-form.mini .inputWrapper {
     padding: 10px;
 }
 
-.friendlyForm.mini label {
+.xnat-form.mini label {
     display: inline-block;
     width: 200px;
     text-transform: inherit;
 }
 
-.friendlyForm.mini input[type=text],
-.friendlyForm.mini input[type=password],
-.friendlyForm.mini input[type=file],
-.friendlyForm.mini textarea {
+.xnat-form.mini input[type=text],
+.xnat-form.mini input[type=password],
+.xnat-form.mini input[type=file],
+.xnat-form.mini textarea {
     font-size: 12px !important;
     padding: 3px;
     width: inherit;
 }
 
-.friendlyForm.mini .dataTable label {
+.xnat-form.mini .dataTable label {
     width: 100px;
 }
 
@@ -3896,3 +3907,4 @@ textarea.xml-formatted {
     }
 
 }
+

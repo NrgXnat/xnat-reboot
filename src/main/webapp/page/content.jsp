@@ -2,37 +2,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
+
 <script src="${SITE_ROOT}/scripts/xnat/app/customPage.js"></script>
 
-
 <div id="page-content"></div>
-
 
 <script>
 
     (function(){
 
-        var customPage   = XNAT.app.customPage;
+        var customPage = XNAT.app.customPage;
         var $pageContent = $('#page-content').html('loading...');
 
         var pageName = customPage.getPageName();
-        console.log(pageName);
+        console.log('pageName: "' + pageName + '"');
 
         customPage.getPage(null, $pageContent);
 
-        $(window).on('hashchange', function(){
+        $(window).on('hashchange', function(e){
+            e.preventDefault();
+            if (window.location.hash.indexOf('#!') === 0) {
+                return false;
+            }
             var newPageName = customPage.getPageName();
-            if (newPageName !== pageName && !/^(#!)/.test(window.location.hash)) {
+            if (newPageName !== pageName) {
                 customPage.getPage('', $pageContent);
             }
         });
 
     })();
 
-    $(window).on('load', function(){
-        $('body').on('click.bang', '[href^="#!"]', function(e){
+    $(function(){
+        $(document.body).on('click', '[href^="#"], [href^="@!"]', function(e){
             e.preventDefault();
         });
-    })
+    });
 
 </script>
+

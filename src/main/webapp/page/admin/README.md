@@ -28,15 +28,15 @@ normally be on any page:
 </pg:restricted>
 ```
 
-There's also a `<incl:redirect/>` convenience tag for wrapping a message with a timeout 
+There's also a `<pg:redirect/>` convenience tag for wrapping a message with a timeout 
 duration (how long, in milliseconds, that the message will be shown before redirecting.)
 
 ```jsp
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>
 
 <c:set var="message">
-    <incl:redirect delay="3000">
+    <pg:redirect delay="3000">
         <div class="error">Not authorized. Redirecting...</div>
-    </incl:redirect>
+    </pg:redirect>
 </c:set>
 ```

@@ -1,5 +1,5 @@
 <%--@elvariable id="siteConfigPreferences" type="org.nrg.xdat.preferences.SiteConfigPreferences"--%>
-<%@ tag description="Head Element" pageEncoding="UTF-8" %>
+<%@ tag description="Head Element" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>

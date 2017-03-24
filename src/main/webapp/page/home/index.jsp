@@ -4,14 +4,14 @@
 
 <pg:html>
     <!-- pg:head start -->
-    <pg:head title="" headTop="" headBottom="">
+    <pg:head title="Home" headTop="" headBottom="">
 
         <!-- head content -->
 
     </pg:head>
     <!-- pg:head end -->
     <!-- pg:body start -->
-    <pg:body id="" className="" bodyTop="" bodyBottom="">
+    <pg:body page="home" id="xnat-home" className="home" bodyTop="" bodyBottom="">
 
         <jsp:include page="content.jsp"/>
 

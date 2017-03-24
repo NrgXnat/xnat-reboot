@@ -2,11 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 
-<c:set var="headBottom">
-    <!-- insert right before </head> -->
-</c:set>
-
 <pg:html>
+
+    <c:set var="headBottom">
+        <!-- insert right before </head> -->
+    </c:set>
+
     <!-- pg:head start -->
     <pg:head title="" headTop="" headBottom="${headBottom}">
 

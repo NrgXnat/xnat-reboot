@@ -36,12 +36,18 @@ openUrls:
   - /images/
   - /login
   - /page/
+  - /page/login/
   - /pages/
   - /scripts/
   - /style/
   - /themes/
+  - /xapi/siteConfig/siteId
   - /xapi/siteConfig/buildInfo
+  - /xapi/siteConfig/siteLogoPath
   - /xapi/siteConfig/siteWideAlert
+  - /xapi/siteConfig/siteDescriptionType
+  - /xapi/siteConfig/siteDescriptionPage
+  - /xapi/siteConfig/siteDescriptionText
 
 adminUrls:
   - /app/template/AdminSummary.vm

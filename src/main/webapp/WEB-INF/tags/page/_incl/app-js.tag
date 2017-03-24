@@ -1,4 +1,4 @@
-<%@ tag description="App Scripts" pageEncoding="UTF-8" %>
+<%@ tag description="App Scripts" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" tagdir="/WEB-INF/tags/page" %>
 <%@ taglib prefix="incl" tagdir="/WEB-INF/tags/page/_incl" %>
@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="${SCRIPTS}/xmodal-v1/xmodal.css?${versionString}">
     <script src="${SCRIPTS}/xmodal-v1/xmodal.js"></script>
     <script src="${SCRIPTS}/xmodal-v1/xmodal-migrate.js"></script>
+
+    <!-- XNAT JLAPI stylesheets -->
+    <link rel="stylesheet" type="text/css" href="${SCRIPTS}/xnat/ui/dialog.css?${versionString}">
 
     <!-- XNAT JLAPI scripts -->
     <script src="${SCRIPTS}/xnat/validate.js"></script>
@@ -40,6 +43,7 @@
     <script src="${SCRIPTS}/xnat/spawner.js"></script>
 
 
+    <%-- insert page-specific app scripts in the body of <incl:app-js> tag --%>
     <jsp:doBody/>
 
 
