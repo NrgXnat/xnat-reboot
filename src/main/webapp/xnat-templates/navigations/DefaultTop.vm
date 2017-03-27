@@ -35,6 +35,7 @@
         /*box-sizing: border-box;*/
         overflow-y: auto;
         overflow-x: hidden;
+        border: none;
     }
 
     #main-nav ul.nav div.data-table-wrapper * {
