@@ -4,26 +4,8 @@
 mainNav:
 
     js:
-        seq: 00 # seq 00 creates a hidden element - not a menu item
+        seq: -01 # negative values create a hidden element
         spawn: script|src=/scripts/xnat/app/mainNav.js
-
-    # all options
-    __samples:
-        seq: -1 # any negative seq value will suppress rendering
-        label: Samples
-        items:
-
-        __sample1:
-            seq: -9
-            label: Sample
-            id: sample-menu-item
-            className: bogus
-            href: /page/#/sample/
-            render: false # suppress rendering completely
-
-        __sample2:
-            seq: -99
-            html: <a href="/page/#/sample-too/" title="Another Sample">Sample Too</a>
 
     home:
         seq: 01
@@ -38,44 +20,56 @@ mainNav:
                 backgroundSize: 32px
                 backgroundPosition: center center
             - " "
-#        html: >
-#            <a id="nav-home" title="Home" href="/app/template/Index.vm"
-#                style="width: 30px;
-#                    background-image: url('/images/xnat-nav-logo-white-lg.png');
-#                    background-repeat: no-repeat;
-#                    background-size: 32px;
-#                    background-position: center center;">
-#            &nbsp;
-#            </a>
+    #        html: >
+    #            <a id="nav-home" title="Home" href="/app/template/Index.vm"
+    #                style="width: 30px;
+    #                    background-image: url('/images/xnat-nav-logo-white-lg.png');
+    #                    background-repeat: no-repeat;
+    #                    background-size: 32px;
+    #                    background-position: center center;">
+    #            &nbsp;
+    #            </a>
 
     # Browse >
     browse:
         seq: 10
         label: Browse
+        show: "*?=XNAT.app.mainNav.showBrowseMenu()"  # use a function to determine visibility
         items:
 
-            # Browse > Projects >
-            projects:
+            # Browse > My Projects >
+            myProjects:
                 seq: 10
-                label: Projects
-                id: main-nav-browse-projects
-                items: "*?=XNAT.app.mainNav.browseProjects" # TODO: finalize syntax for executing function by name
-                # *?| -- execute a function by name (returned value not required)
+                label: My Projects
+                id: main-nav-browse-my-projects
+                show: false # use EITHER 'show' or 'hide' property
+                hide: true
+                items: "*?=XNAT.app.mainNav.browseProjects()"
+                # TODO: implement syntax for executing function by name
+                # *?| -- execute a function by name (return value not required)
                 # *?= -- execute a function by name and use the returned value
+
+            # Browse > All Projects >
+            allProjects:
+                seq: 20
+                show: false
+                label: All Projects
+                id: main-nav-browse-all-projects
+                items: "*?=XNAT.app.mainNav.browseProjects()"
 
             # Browse > Favorite Projects >
             favoriteProjects:
-                seq: 20
+                seq: 30
                 label: Favorite Projects
                 id: main-nav-browse-favorite-projects
-                items: "*?=XNAT.app.mainNav.favoriteProjects" # TODO: finalize syntax for executing function by name
+                items: "*?=XNAT.app.mainNav.favoriteProjects()"
 
             # Browse > Data >
             data:
-                seq: 30
+                seq: 40
                 label: Data
                 id: main-nav-browse-data
-                items: "*?=XNAT.app.mainNav.browseData" # TODO: finalize syntax for executing function by name
+                items: "*?=XNAT.app.mainNav.browseData()"
 
     # New >
     new:
@@ -85,9 +79,9 @@ mainNav:
 
             # New > Project
             project:
+                seq: 10
                 label: Project
-                #href: "@!/page/#/project/new" # href values starting with @! will open in a dialog
-                href: "@!"
+                href: "@!/page/#/project/new" # href values starting with @! will open in a dialog
                 dialog:
                     width: 600
                     content: "$?/page/project/new" # TODO: add support for getting dialog content via xhr using $? syntax
@@ -96,12 +90,14 @@ mainNav:
 
             # New > Subject
             subject:
+                seq: 20
                 label: Subject
                 href: "@!/page/#/subject/new"
                 #html: <a href="/app/action/XDATActionRouter/xdataction/edit/search_element/xnat:subjectData">Subject</a>
 
             # New > Experiment
             experiment:
+                seq: 30
                 label: Experiment
                 href: "@!/page/#/experiment/new"
                 #html: <a href="/app/template/XDATScreen_add_experiment.vm">Experiment</a>
@@ -143,13 +139,16 @@ mainNav:
                         href: /app/template/DICOMSCPPage.vm
 
             # Upload > XML
-            xml: "@20 | XML | @!/app/template/XMLUpload.vm > width:600;height:400"
+            xml: >
+                20 | XML | @!/app/template/XMLUpload.vm > width:600;height:400
 
             # Upload > Spreadsheet
-            spreadsheet: "@30 | Spreadsheet | /app/template/XDATScreen_uploadCSV.vm"
+            spreadsheet: >
+                30 | Spreadsheet | /app/template/XDATScreen_uploadCSV.vm
 
             # Upload > Go to Prearchive
-            prearchive: "@40 | Go to Prearchive | /app/template/XDATScreen_prearchives.vm"
+            prearchive: >
+                40 | Go to Prearchive | /app/template/XDATScreen_prearchives.vm
 
     # Administer >
     administer:
@@ -159,10 +158,12 @@ mainNav:
         items:
 
             # Administer > Site Administration
-            siteAdmin: 10 | Site Administration | /page/#/admin/
+            siteAdmin: >
+                10 | Site Administration | /page/#/admin/
 
             # Administer > Users
-            users: 20 | Users | /page/#/admin/users/
+            users: >
+                20 | Users | /page/#/admin/users/
 
             # Administer > Groups
             groups:
@@ -202,10 +203,10 @@ mainNav:
 
             # Administer > Other...
             other:
-                - 99
-                - Other...
-                - /page/#/admin/other/
-                # might be able to do an array also
+                seq: 99
+                label: Other...
+                href: /page/#/admin/other/
+                # better to be explicit by using named properties
 
     # Tools >
     tools:
@@ -214,13 +215,16 @@ mainNav:
         items:
 
             # Tools > XNAT Tools
-            xnatTools: '@10 | XNAT Tools | https://wiki.xnat.org/xnat-tools | target="_blank"' # fourth item will be attributes for <a> element
+            xnatTools: >            # fourth item will be attributes for <a> element
+                10 | XNAT Tools | https://wiki.xnat.org/xnat-tools | target="_blank"
 
             # Tools > DICOM Browser
-            dicomBrowser: '@20 | <a href="https://wiki.xnat.org/xnat-tools/dicombrowser" target="_blank">DICOM Browser</a>' # if only 2 items, it's sequence and full HTML string
+            dicomBrowser: >         # if there are only 2 items, include sequence and full HTML string
+                20 | <a href="https://wiki.xnat.org/xnat-tools/dicombrowser" target="_blank">DICOM Browser</a>
 
             # Tools > Command Prompt Tools
-            cmd: '@30 | Command Prompt Tools | https://wiki.xnat.org/xnat-tools/xnat-web-services-client-tools | target="_blank"'
+            cmd: >
+                30 | Command Prompt Tools | https://wiki.xnat.org/xnat-tools/xnat-web-services-client-tools | target="_blank"
 
     # Help >
     help:
@@ -229,11 +233,46 @@ mainNav:
         items:
 
             # Help > Report a Problem
-            reportProblem: 10 | Report a Problem | /app/template/ReportIssue.vm
-            # maybe the @ isn't necessary?
+            reportProblem: >
+                10 | Report a Problem | /app/template/ReportIssue.vm
 
             # Help > Documentation
-#            documentation: 20 | Documentation | http://wiki.xnat.org/ | target="_blank"
-            documentation:
-                - 20
-                - '<a href="http://wiki.xnat.org/ target="_blank">Documentation</a>'
+            documentation: >
+                20 | <a href="http://wiki.xnat.org/ target="_blank">Documentation</a>
+
+
+
+
+
+
+
+
+
+
+# other EXAMPLES
+xsamples:
+    seq: -1 # negative values create a hidden element - useful for inserting js or css
+    label: Samples
+    items:
+
+    __sample1:
+        seq: -9
+        label: Sample
+        id: sample-menu-item
+        className: bogus
+        href: /page/#/sample/
+        render: false # suppress rendering completely
+
+    __sample2:
+        seq: -99
+        html: >
+            <a href="/page/#/sample-too/" title="Another Sample">Sample Too</a>
+
+    __sample3:
+        seq: -99
+        spawn:
+            tag: "a#sample-3-link"
+            prop:
+                href: "/page/#/sample-three/"
+                title: "(Third Sample)"
+                html: Sample Number 3

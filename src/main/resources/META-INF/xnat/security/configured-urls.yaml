@@ -10,8 +10,11 @@ initUrls:
 
 openUrls:
   - /REST/JSESSION
+  - /data/JSESSION
   - /REST/services/auth
+  - /data/services/auth
   - /REST/services/sendemailverification
+  - /data/services/sendemailverification
   - /app/action/AcceptProjectAccess/par/
   - /app/action/InactiveAccountEmail
   - /app/action/ModifyPassword
@@ -28,9 +31,6 @@ openUrls:
   - /app/template/VerificationSent.vm
   - /app/template/VerifyEmail.vm
   - /app/template/XDATScreen_UpdateUser.vm
-  - /data/JSESSION
-  - /data/services/auth
-  - /data/services/sendemailverification
   - /favicon.ico
   - /files/
   - /images/
@@ -67,3 +67,5 @@ adminUrls:
   - /app/template/XDATScreen_roles.vm
   - /monitoring
   - /setup/
+  - /page/admin/
+  - /**/admin/
