@@ -316,6 +316,19 @@ public class ProjectListResource extends QueryOrganizerResource {
                         allCC.addCriteria(cc);
                     }
                 }
+                String users = resource.getQueryVariable("users");
+                if (users != null) {
+                    if (users.equalsIgnoreCase("true")) {
+                        CriteriaCollection cc = new CriteriaCollection("OR");
+                        DisplayCriteria dc = new DisplayCriteria();
+                        dc.setSearchFieldByDisplayField("xnat:projectData", "PROJECT_USERS");
+                        dc.setComparisonType(" LIKE ");
+                        dc.setValue("% " + user.getLogin() + " %", false);
+                        cc.add(dc);
+
+                        orCC.addCriteria(cc);
+                    }
+                }
 
                 String owner = resource.getQueryVariable("owner");
                 if (owner != null) {

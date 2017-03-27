@@ -73,12 +73,12 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationFailureHandler authFailure() {
-        return new XnatUrlAuthenticationFailureHandler("/page/login/?failed=true", "/app/template/PostRegister.vm");
+        return new XnatUrlAuthenticationFailureHandler("/app/template/Login.vm?failed=true", "/app/template/PostRegister.vm");
     }
 
     @Bean
     public XnatAuthenticationEntryPoint loginUrlAuthenticationEntryPoint(final SiteConfigPreferences preferences) {
-        final XnatAuthenticationEntryPoint entryPoint = new XnatAuthenticationEntryPoint("/page/login/", preferences);
+        final XnatAuthenticationEntryPoint entryPoint = new XnatAuthenticationEntryPoint("/app/template/Login.vm", preferences);
         entryPoint.setDataPaths(Arrays.asList("/xapi/**", "/data/**", "/REST/**", "/fs/**"));
         entryPoint.setInteractiveAgents(Arrays.asList(".*MSIE.*", ".*Mozilla.*", ".*AppleWebKit.*", ".*Opera.*"));
         return entryPoint;
@@ -91,7 +91,7 @@ public class SecurityConfig {
 
     @Bean
     public ConcurrentSessionFilter concurrencyFilter(final SessionRegistry sessionRegistry) {
-        return new ConcurrentSessionFilter(sessionRegistry, "/page/login/");
+        return new ConcurrentSessionFilter(sessionRegistry, "/app/template/Login.vm");
     }
 
     @Bean
@@ -117,7 +117,7 @@ public class SecurityConfig {
     public LogoutFilter logoutFilter(final SessionRegistry sessionRegistry) {
         final XnatLogoutSuccessHandler logoutSuccessHandler = new XnatLogoutSuccessHandler();
         logoutSuccessHandler.setOpenXnatLogoutSuccessUrl("/");
-        logoutSuccessHandler.setSecuredXnatLogoutSuccessUrl("/page/login/");
+        logoutSuccessHandler.setSecuredXnatLogoutSuccessUrl("/app/template/Login.vm");
         final SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
         securityContextLogoutHandler.setInvalidateHttpSession(true);
         final XnatLogoutHandler xnatLogoutHandler = new XnatLogoutHandler(sessionRegistry);
@@ -189,7 +189,7 @@ public class SecurityConfig {
             setChangePasswordPath("/app/template/XDATScreen_UpdateUser.vm");
             setChangePasswordDestination("/app/action/ModifyPassword");
             setLogoutDestination("/app/action/LogoutUser");
-            setLoginPath("/page/login/");
+            setLoginPath("/app/template/Login.vm");
             setLoginDestination("/app/action/XDATLoginUser");
             setInactiveAccountPath("/app/template/InactiveAccount.vm");
             setInactiveAccountDestination("/app/action/XnatInactiveAccount");
